@@ -17,19 +17,19 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-5">
-					<form style="border: solid" action="ConnectionFormController" method="post">
+					<form:form style="border: solid" action="/seConnecter" method="post" modelAttribute="client">
 						<h3 class="text-center">Connexion</h3>
 						<label>Mail :</label>
-						<input type="text" name="mail" required><br>
+						<form:input type="text" path="email" required="true"/><br>
 						
 						<label>Pass :</label>
-						<input type="text" name="pass" required><br>
+						<form:input type="text" path="motDePasse" required="true"/><br>
 						<div class="row">
 							<div class="col text-center">
 								<input type="submit">
 							</div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 
 
@@ -37,7 +37,7 @@
               <h3 class="text-center">Inscription</h3>
                 <div class="container tagline">
                     <em>Register User</em><br/>
-                    <form:form method="post" action="/enregistrerClient" modelAttribute="nouveauclient" >
+                    <form:form method="post" action="/enregistrerClient" modelAttribute="client" >
                        <label>Prénom</label> <form:input path="prenom" type="text" />
                         <form:errors path="prenom" cssClass="error"/>
                         <br/>

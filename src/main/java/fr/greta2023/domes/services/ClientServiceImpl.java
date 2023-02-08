@@ -27,7 +27,14 @@ public class ClientServiceImpl implements ClientService {
         return true;
     }
 
-
+    @Override
+    public boolean connexionClient(Client client) {
+        Client isCorrect = clientRepository.findByEmailAndMotDePasse(client.getEmail(), client.getMotDePasse());
+        if(isCorrect !=null){
+            return true;
+        }
+        return false;
+    }
 
 
 }

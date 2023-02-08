@@ -2,7 +2,30 @@
 
 h1{
 font-size: 32px;
+text-align:center;
+}
 
+h2{
+margin-left:50px;
+color:#5E42DB;
+}
+
+h5{
+text-align:center;
+}
+
+.bandeauItem{
+width: 10rem;
+height: 10 rem;
+margin:5px
+}
+
+.bandeauImg{
+border-radius:20%;
+}
+
+.bandeauDescription{
+font-size:10px;
 }
 
 .nav-link{

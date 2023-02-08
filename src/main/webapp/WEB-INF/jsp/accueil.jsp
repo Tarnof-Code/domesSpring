@@ -17,50 +17,77 @@
 	<%@ include file="navBarNico.jsp" %>
 <h1> DOMES SERVICES</h1>
 
+<h2>Ils vous attendent...</h2>
 
-<div class="container " style="border: solid red">
 
- <div class="carouselContainer d-flex justify-content-center" style="border: dashed" >
-      <h1>Ils vous attendent...</h1>
-      <div id="demo" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" >
-          <div class="carousel-item active">
-            <img src="/images/animaux/chiens/bob.png" alt="Carrousel slide 1" class="d-block w-50 ">
-            <h2>Bob</h2>
-            <p>Shiba</p>
+
+
+<div class="d-flex justify-content-center">
+<c:if test="${!empty(listeAleatoire)}">
+  <c:forEach var="animal" items="${listeAleatoire}">
+          <div class="bandeauItem" >
+            <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
+            <div class="card-body">
+            <h5>${animal.nom}</h5>
+            <p class="bandeauDescription">${animal.description}</p>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="/images/animaux/chiens/kikou.png" alt="Carrousel slide 2" class="d-block w-50">
-            <h2>Kikou</h2>
-            <p>Cavalier King Charles</p>
+     </c:forEach>
+ </c:if>
+ </div>
+
+
+
+<h2>Nos catégories</h2>
+
+<div class="d-flex justify-content-center">
+
+          <div class="bandeauItem" >
+            <img class="card-img-top bandeauImg" src="/images/categories/chiens.jpg" alt="Card image cap">
+            <div class="card-body">
+            <h5>CHIENS</h5>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="/images/animaux/chiens/yoshi.png" alt="Carrousel slide 3" class="d-block w-50">
-            <h2>Yoshi</h2>
-             <p>Bouvier de l'Entlebuch</p>
+
+          <div class="bandeauItem" >
+              <img class="card-img-top bandeauImg" src="/images/categories/chats.jpg" alt="Card image cap">
+              <div class="card-body">
+              <h5>CHATS</h5>
+              </div>
           </div>
-        </div>
-      </div>
+
+          <div class="bandeauItem" >
+              <img class="card-img-top bandeauImg" src="/images/categories/poissons.jpg" alt="Card image cap">
+              <div class="card-body">
+              <h5>POISSONS</h5>
+              </div>
+            </div>
+
+            <div class="bandeauItem" >
+                <img class="card-img-top bandeauImg" src="/images/categories/reptiles.jpg" alt="Card image cap">
+                <div class="card-body">
+                <h5>REPTILES</h5>
+                </div>
+            </div>
+
+          <div class="bandeauItem" >
+              <img class="card-img-top bandeauImg" src="/images/categories/oiseaux.jpg" alt="Card image cap">
+              <div class="card-body">
+              <h5>OISEAUX</h5>
+              </div>
+          </div>
+
+
+
     </div>
 
 
-	
-	<div class="container">
-		<div class="row text-center">
-		<h3>Nos Catégories [ BUTTON CLICABLE POUR FILTRER LES CATégories]</h3>
-			<div class="col">
-					<button>Les Chiens</button>
-					<button>Les Chats</button>
-					<button>Les Poissons</button>
-					<button>Les Reptiles</button>
-					<button>Les Oiseaux</button>
-			</div>
-		</div>
-	</div>
+
+
 	<br><br>
-	
-	
-	
+
+
+
 	<!--  DEBUT DES DIFFERENTES CATEGORIES !!! Après ça il n'y a que le footer -->
 	<h3> Section : LES DIFFERENTES CATEgories [ A revoir ]</h3>
 	<div class="container">
@@ -107,7 +134,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES CHIENS ICI  -->
-	
+
 	<div class="container">
 		<h4>Les CHATS</h4>
 		<div class="row">
@@ -152,7 +179,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES CHATS ICI  -->
-	
+
 	<div class="container">
 		<h4>Les Poissons</h4>
 		<div class="row">
@@ -197,7 +224,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES POISSONS ICI  -->
-	
+
 	<div class="container">
 		<h4>Les OISEAUX</h4>
 		<div class="row">
@@ -242,7 +269,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES OISEAUX ICI  -->
-	
+
 	<div class="container">
 		<h4>Les REPTILES</h4>
 		<div class="row">
@@ -287,7 +314,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES REPTILES ICI  -->
-	
+
 	<%@ include file="footer.jsp" %>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
