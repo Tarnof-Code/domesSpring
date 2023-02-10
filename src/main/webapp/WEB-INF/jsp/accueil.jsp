@@ -9,87 +9,78 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous"
 >
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 <link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"> </script>
 </head>
 
 
 <body>
 	<%@ include file="navBarNico.jsp" %>
-<h1> DOMES SERVICES</h1>
 
-<h2>Ils vous attendent...</h2>
+<div class="mainContainer">
 
+<div class="sectionContainer">
+    <h2>Ils vous attendent...</h2>
+    <div class="d-flex justify-content-center">
+        <c:if test="${!empty(listeAleatoire)}">
+          <c:forEach var="animal" items="${listeAleatoire}">
+                  <div class="bandeauItem" >
+                    <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5>${animal.nom}</h5>
+                    <p class="more text-center">En savoir plus</p>
+                  </div>
+                  </div>
+             </c:forEach>
+         </c:if>
+     </div>
+</div>
 
-
-
-<div class="d-flex justify-content-center">
-<c:if test="${!empty(listeAleatoire)}">
-  <c:forEach var="animal" items="${listeAleatoire}">
-          <div class="bandeauItem" >
-            <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
+<div class="sectionContainer">
+    <h2>Nos catégories</h2>
+    <div class="d-flex justify-content-center">
+     <c:if test="${!empty(listeCategories)}">
+       <c:forEach var="categorie" items="${listeCategories}">
+        <div class="bandeauItem" >
+            <img class="card-img-top bandeauImg" src="${categorie.photo}" alt="Card image cap">
             <div class="card-body">
-            <h5>${animal.nom}</h5>
-            <p class="bandeauDescription">${animal.description}</p>
+            <h5>${categorie.categorie}</h5>
             </div>
-          </div>
-     </c:forEach>
- </c:if>
- </div>
-
-
-
-<h2>Nos catégories</h2>
-
-<div class="d-flex justify-content-center">
-
-          <div class="bandeauItem" >
-            <img class="card-img-top bandeauImg" src="/images/categories/chiens.jpg" alt="Card image cap">
-            <div class="card-body">
-            <h5>CHIENS</h5>
-            </div>
-          </div>
-
-          <div class="bandeauItem" >
-              <img class="card-img-top bandeauImg" src="/images/categories/chats.jpg" alt="Card image cap">
-              <div class="card-body">
-              <h5>CHATS</h5>
-              </div>
-          </div>
-
-          <div class="bandeauItem" >
-              <img class="card-img-top bandeauImg" src="/images/categories/poissons.jpg" alt="Card image cap">
-              <div class="card-body">
-              <h5>POISSONS</h5>
-              </div>
-            </div>
-
-            <div class="bandeauItem" >
-                <img class="card-img-top bandeauImg" src="/images/categories/reptiles.jpg" alt="Card image cap">
-                <div class="card-body">
-                <h5>REPTILES</h5>
-                </div>
-            </div>
-
-          <div class="bandeauItem" >
-              <img class="card-img-top bandeauImg" src="/images/categories/oiseaux.jpg" alt="Card image cap">
-              <div class="card-body">
-              <h5>OISEAUX</h5>
-              </div>
-          </div>
-
-
-
+         </div>
+        </c:forEach>
+     </c:if>
     </div>
-
-
-
-
+</div>
 	<br><br>
 
+<div class="sectionContainer">
+<h2>Les chiens</h2>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-5">
+                  <img src="/images/animaux/chiens/bob.png" class="img-fluid">
+                </div>
+                <div class="col-md-7">
+                  <h5>Shiba</h5>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....
+                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....</p>
+                  <h6>2500?</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
 
 
-	<!--  DEBUT DES DIFFERENTES CATEGORIES !!! Après ça il n'y a que le footer -->
-	<h3> Section : LES DIFFERENTES CATEgories [ A revoir ]</h3>
 	<div class="container">
 		<h4>Les Chiens</h4>
 		<div class="row">
@@ -314,7 +305,7 @@
 			</div>
 		</div>
 	</div><!--  FIN DES REPTILES ICI  -->
-
+</div>
 	<%@ include file="footer.jsp" %>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

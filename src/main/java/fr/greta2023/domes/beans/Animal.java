@@ -17,8 +17,6 @@ public class Animal {
 
     private String race;
 
-    private int age;
-
     private String description;
 
     private double prix;
@@ -30,7 +28,6 @@ public class Animal {
                 ", photo='" + photo + '\'' +
                 ", nom='" + nom + '\'' +
                 ", race='" + race + '\'' +
-                ", age=" + age +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
                 '}';
@@ -66,14 +63,6 @@ public class Animal {
 
     public void setRace(String race) {
         this.race = race;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getDescription() {

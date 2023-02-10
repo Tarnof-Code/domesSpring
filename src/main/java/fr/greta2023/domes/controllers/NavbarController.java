@@ -2,9 +2,11 @@ package fr.greta2023.domes.controllers;
 
 
 import fr.greta2023.domes.beans.Animal;
+import fr.greta2023.domes.beans.Categorie;
 import fr.greta2023.domes.beans.Client;
 import fr.greta2023.domes.services.AnimalService;
 import fr.greta2023.domes.services.AnimalServiceImpl;
+import fr.greta2023.domes.services.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,13 +22,23 @@ public class NavbarController {
     @Autowired
     private AnimalService animalService;
 
+    @Autowired
+    private CategorieService categorieService;
+
     @GetMapping("/accueil")
     public String goAccueil( Model model){
+
         List<Animal> listeAnimauxAleatoire = new ArrayList<Animal>();
         listeAnimauxAleatoire = animalService.afficherAleatoires();
-        System.out.println("Page d'accueil");
-        System.out.println(listeAnimauxAleatoire);
+     /*   System.out.println("Page d'accueil");
+        System.out.println(listeAnimauxAleatoire); */
         model.addAttribute("listeAleatoire",listeAnimauxAleatoire);
+
+        Iterable<Categorie> listeCategories = new ArrayList<>();
+        listeCategories = categorieService.afficherCategories();
+        System.out.println(listeCategories);
+        model.addAttribute("listeCategories",listeCategories);
+
         return "accueil";
     }
 

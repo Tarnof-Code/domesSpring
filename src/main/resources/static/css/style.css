@@ -6,13 +6,28 @@ text-align:center;
 }
 
 h2{
-margin-left:50px;
 color:#5E42DB;
+font-family: 'Roboto';
+font-weight:bold;
+font-size:20px
 }
 
 h5{
 text-align:center;
 }
+
+.mainContainer{
+display:flex;
+flex-direction:column;
+justify-content: center;
+align-items:center;
+
+}
+
+.sectionContainer{
+width:50%
+}
+
 
 .bandeauItem{
 width: 10rem;
@@ -24,8 +39,10 @@ margin:5px
 border-radius:20%;
 }
 
-.bandeauDescription{
-font-size:10px;
+
+
+.more{
+    font-size:10px;
 }
 
 .nav-link{
