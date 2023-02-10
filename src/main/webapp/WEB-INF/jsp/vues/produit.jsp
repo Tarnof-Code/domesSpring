@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 	
 	<div class="container">
 		<div class="row">
@@ -70,6 +70,6 @@
 	
 	
 	
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 </html>

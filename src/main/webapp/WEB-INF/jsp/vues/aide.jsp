@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 	<h1>Page d'Aide</h1>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 </html>

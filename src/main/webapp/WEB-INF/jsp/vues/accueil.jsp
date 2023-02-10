@@ -17,10 +17,10 @@
 
 
 <body>
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 
 <div class="mainContainer">
-
+<br><br>
 <div class="sectionContainer">
     <h2>Ils vous attendent...</h2>
     <div class="d-flex justify-content-center">
@@ -37,7 +37,7 @@
          </c:if>
      </div>
 </div>
-
+<br><br>
 <div class="sectionContainer">
     <h2>Nos catégories</h2>
     <div class="d-flex justify-content-center">
@@ -57,17 +57,16 @@
 
 <div class="sectionContainer">
 <h2>Les chiens</h2>
-
-      <div class="row justify-content-center">
+      <div class="row">
         <div class="col-md-8">
           <div class="card">
             <div class="card-body">
               <div class="row">
                 <div class="col-md-5">
-                  <img src="/images/animaux/chiens/bob.png" class="img-fluid">
+                  <img src="/images/animaux/chiens/bob.png" class="img-fluid bandeauImg">
                 </div>
                 <div class="col-md-7">
-                  <h5>Shiba</h5>
+                  <H3>Shiba</H3>
                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....
                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....</p>
                   <h6>2500?</h6>
@@ -77,7 +76,6 @@
           </div>
         </div>
       </div>
-
 </div>
 
 
@@ -306,7 +304,7 @@
 		</div>
 	</div><!--  FIN DES REPTILES ICI  -->
 </div>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

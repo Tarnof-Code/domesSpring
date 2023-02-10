@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 	
 	<h1> Page Inscription / Connexion</h1>
 	<br>
@@ -74,6 +74,6 @@
 	
 	
 	
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 </html>

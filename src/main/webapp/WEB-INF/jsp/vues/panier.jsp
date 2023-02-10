@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 	<h1>Mon panier</h1>
 	<div class="container">
 		<div class="row">
@@ -90,6 +90,6 @@
 	
 	
 	
-	<%@ include file="footer.jsp" %>
+	<%@ include file="../components/footer.jsp" %>
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 </head>
 <body class="bg-light">
-	<%@ include file="navBarNico.jsp" %>
+	<%@ include file="../components/navBar.jsp" %>
 	<div class="container">
 		<div class="row">
 			<div class="col-4 bg-secondary">
