@@ -19,19 +19,20 @@
 <body>
 	<%@ include file="../components/navBar.jsp" %>
 
-<div class="mainContainer">
+<div class="container">
         <br><br>
-        <div class="sectionContainer">
+        <div >
             <h2>Ils vous attendent...</h2>
             <%@ include file="../components/bandeauRandom.jsp" %>
         </div>
         <br><br>
-        <div class="sectionContainer">
+        <div>
             <h2>Nos catégories</h2>
             <%@ include file="../components/categoriesAccueil.jsp" %>
         </div>
+
         <br><br>
-        <div class="sectionContainer">
+        <div>
             <%@ include file="../components/articlesAccueil.jsp" %>
         </div>
 </div>

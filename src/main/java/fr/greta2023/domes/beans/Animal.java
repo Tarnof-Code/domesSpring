@@ -1,9 +1,6 @@
 package fr.greta2023.domes.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Animal {
@@ -15,11 +12,17 @@ public class Animal {
 
     private String nom;
 
+
+    @ManyToOne
+    private Categorie categorie;
+
     private String race;
 
     private String description;
 
     private double prix;
+
+
 
     @Override
     public String toString() {
@@ -80,4 +83,12 @@ public class Animal {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
 }

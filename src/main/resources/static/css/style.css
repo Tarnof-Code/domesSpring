@@ -9,7 +9,8 @@ h2{
 color:#5E42DB;
 font-family: 'Roboto';
 font-weight:bold;
-font-size:20px
+font-size:25px;
+text-align:center;
 }
 
 h5{
@@ -26,12 +27,12 @@ border-color:red;
 
 }
 
-.sectionContainer{
+/*.sectionContainer{
 width:50%;
 border: solid;
 border-color:blue;
 
-}
+}*/
 
 
 .bandeauItem{
@@ -44,7 +45,13 @@ margin:5px
 border-radius:20%;
 }
 
+.articles{
+margin:10px;
+background-color:#f5f6fa;
+border-radius:20px;
+padding:20px;
 
+}
 
 .more{
     font-size:10px;
@@ -127,6 +134,10 @@ border-radius:20%;
 .error{
 color:#c23616;
 font-weight: bold;
+}
+
+.picto{
+height: 30px;
 }
 
 

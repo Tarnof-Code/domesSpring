@@ -41,5 +41,17 @@ public class AnimalServiceImpl implements AnimalService{
         }
 
         return animauxAleatoires;
+
     }
+
+    @Override
+    public List<Animal> listeParCategorie(int idCategorie){
+        return animalRepository.findByCategorieId(idCategorie);
+        }
+
+public List<List<Animal>> listeAnimauxParCat(){
+        return null;
+}
+
+
 }

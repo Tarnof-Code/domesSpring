@@ -11,10 +11,10 @@
 </head>
 
 
-    <div class="d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
      <c:if test="${!empty(listeCategories)}">
        <c:forEach var="categorie" items="${listeCategories}">
-        <div class="bandeauItem" >
+        <div class="bandeauItem col-2" >
             <img class="card-img-top bandeauImg" src="${categorie.photo}" alt="Card image cap">
             <div class="card-body">
             <h5>${categorie.categorie}</h5>

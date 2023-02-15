@@ -30,14 +30,15 @@ public class NavbarController {
 
         List<Animal> listeAnimauxAleatoire = new ArrayList<Animal>();
         listeAnimauxAleatoire = animalService.afficherAleatoires();
-     /*   System.out.println("Page d'accueil");
-        System.out.println(listeAnimauxAleatoire); */
         model.addAttribute("listeAleatoire",listeAnimauxAleatoire);
 
         Iterable<Categorie> listeCategories = new ArrayList<>();
         listeCategories = categorieService.afficherCategories();
-        System.out.println(listeCategories);
         model.addAttribute("listeCategories",listeCategories);
+
+        List<Animal> listeChiens = new ArrayList<>();
+        listeChiens = animalService.listeParCategorie(1);
+        model.addAttribute("listeChiens",listeChiens);
 
         return "accueil";
     }

@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface AnimalService {
     public List<Animal> afficherAleatoires();
+    public List<Animal> listeParCategorie(int idCategorie);
 }

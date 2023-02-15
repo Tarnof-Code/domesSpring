@@ -8,24 +8,45 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap">
 <link rel="stylesheet" href="/css/style.css"/>
+
 </head>
 
 
 <h2>Les chiens</h2>
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-5">
-                  <img src="/images/animaux/chiens/bob.png" class="img-fluid bandeauImg">
+
+         <div class="row d-flex justify-content-start" >
+
+<c:if test="${!empty(listeChiens)}">
+       <c:forEach var="chien" items="${listeChiens}">
+           <div class="col-12 col-lg-6">
+                <div class="row articles">
+                     <div class="col-5">
+                         <img src="${chien.photo}" class="bandeauImg" style="max-width:200px">
+                     </div>
+
+                     <div class="col-4 text-center d-flex flex-column justify-content-center">
+                       <H3>${chien.nom}</H3>
+                       <p>${chien.race}</p>
+                       <h6>${chien.prix} euros</h6>
+                     </div>
+
+                     <div class="col-1 d-flex align-items-center">
+                       <img src="/images/icones/coeurBlanc.png" class="picto">
+                     </div>
+                     <div class="col-1 d-flex align-items-center">
+                       <img src="/images/icones/ajoutPanierGris.png" class="picto">
+                     </div>
                 </div>
-                <div class="col-md-7">
-                  <H3>Shiba</H3>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....
-                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since....</p>
-                  <h6>2500 euros</h6>
-                </div>
-              </div>
-            </div>
-          </div>
+           </div>
+       </c:forEach>
+</c:if>
+
+
+
+
+        </div>
+
+
+
 
 
