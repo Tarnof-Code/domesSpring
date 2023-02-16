@@ -37,13 +37,15 @@
                 <%@ include file="../components/aside.jsp" %>
 			</div>
 		</div>
-	</div>
-	<div style="height:50px">
+	  </div>
+
 	</div>
 </main>
 	
 	
 	
+<div class="fixed-bottom">
 	<%@ include file="../components/footer.jsp" %>
+</div>
 </body>
 </html>

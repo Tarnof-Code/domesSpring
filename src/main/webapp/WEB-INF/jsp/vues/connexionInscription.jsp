@@ -9,71 +9,61 @@
 <body>
 	
 	<%@ include file="../components/navBar.jsp" %>
-	
-	<h1> Page Inscription / Connexion</h1>
-	<br>
-	
+<main>
+ <div class="container">
+    <div class="row">
+        <form:form class="login-form col-lg-5" method="post" action="/seConnecter" modelAttribute="client">
+          <h2>Connexion</h2>
+          <div class="form-group">
+            <label for="email">Adresse email :</label>
+            <form:input type="email" path="email" required="true"/>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <form:input type="password" path="motDePasse" required="true"/>
+          </div>
+          <button type="submit" class="submit-button">Se connecter</button>
+        </form:form>
 
-	<div class="container">
-		<div class="row">
-				<div class="col-5">
-					<form:form style="border: solid" action="/seConnecter" method="post" modelAttribute="client">
-						<h3 class="text-center">Connexion</h3>
-						<label>Mail :</label>
-						<form:input type="text" path="email" required="true"/><br>
-						
-						<label>Pass :</label>
-						<form:input type="text" path="motDePasse" required="true"/><br>
-						<div class="row">
-							<div class="col text-center">
-								<input type="submit">
-							</div>
-						</div>
-					</form:form>
-				</div>
-
-
-              <section id="registration" class="section" style="border:solid">
-              <h3 class="text-center">Inscription</h3>
-                <div class="container tagline">
-                    <em>Register User</em><br/>
-                    <form:form method="post" action="/enregistrerClient" modelAttribute="client" >
-                       <label>Prénom</label> <form:input path="prenom" type="text" />
-                        <form:errors path="prenom" cssClass="error"/>
-                        <br/>
-                        <label>Nom</label> <form:input path="nom" type="text" />
-                        <form:errors path="nom" cssClass="error"/>
-                        <br/>
-                        <label>First Email</label> <form:input path="email" type="email" />
-                        <form:errors path="email" cssClass="error"/>
-                        <br/>
-                        <label>Téléphone</label> <form:input path="telephone" type="text" />
-                        <form:errors path="telephone" cssClass="error"/>
-                        <br/>
-                        <label>Login</label> <form:input path="login" type="text" />
-                        <form:errors path="login" cssClass="error"/>
-                         <br/>
-                         <label>Mot de passe</label> <form:input path="motDePasse" type="text" />
-                         <form:errors path="motDePasse" cssClass="error"/>
-                         <br/>
-                          <input type="submit" value="Submit" id="submit">
-                    </form:form>
-                </div>
-              </section>
-
-                    </div>
-                </div>
-            </div>
-
+         <form:form class="register-form col-lg-5" method="post" action="/enregistrerClient" modelAttribute="client" >
+          <h2>Inscription</h2>
+          <div class="form-group">
+            <label for="nom">Nom :</label>
+            <form:input path="nom" type="text" />
+            <form:errors path="nom" cssClass="error"/>
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <form:input path="prenom" type="text" />
+            <form:errors path="prenom" cssClass="error"/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email :</label>
+            <form:input path="email" type="text" />
+            <form:errors path="email" cssClass="error"/>
+          </div>
+          <div class="form-group">
+              <label for="telephone">Téléphone :</label>
+              <form:input path="telephone" type="text" />
+              <form:errors path="telephone" cssClass="error"/>
+          </div>
+          <div class="form-group">
+            <label for="login">Login :</label>
+            <form:input path="login" type="text" />
+            <form:errors path="login" cssClass="error"/>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <form:input path="motDePasse" type="password" />
+            <form:errors path="motDePasse" cssClass="error"/>
+          </div>
+          <button class="submit-button" type="submit">S'inscrire</button>
+        </form:form>
     </div>
-</div>
-	
-	
-	<br>
-	
-	
-	
-	
+ </div>
+</main>
+<div class="fixed-bottom">
 	<%@ include file="../components/footer.jsp" %>
+</div>
 </body>
 </html>
