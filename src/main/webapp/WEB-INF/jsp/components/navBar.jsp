@@ -20,7 +20,7 @@
 
 
 
-	
+<header>
 	<nav class="navbar navbar-expand-lg fixed-top bg-nav" id="mainNav">
 		<div class="container">
 			<a href="/accueil">
@@ -99,15 +99,9 @@
 		</div>
 	</nav>
 	<div>
-	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
+
 	</div>
-	
+</header>
 	
 
 

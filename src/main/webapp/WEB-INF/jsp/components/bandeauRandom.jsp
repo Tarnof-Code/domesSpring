@@ -19,11 +19,12 @@
         <c:if test="${!empty(listeAleatoire)}">
           <c:forEach var="animal" items="${listeAleatoire}">
                   <div class="bandeauItem col-2" >
-                    <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
-                    <div class="card-body">
-                    <h5>${animal.nom}</h5>
-                    <p class="more text-center">En savoir plus</p>
-                  </div>
+                    <a href="/produit?id=${animal.id}">
+                        <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5>${animal.nom}</h5>
+                        </div>
+                    </a>
                   </div>
              </c:forEach>
          </c:if>

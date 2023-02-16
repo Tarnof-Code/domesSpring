@@ -1,5 +1,8 @@
 @charset "ISO-8859-1";
 
+main{
+margin-top:120px;
+}
 h1{
 font-size: 32px;
 text-align:center;
@@ -34,6 +37,12 @@ border-color:blue;
 
 }*/
 
+.en-savoir-plus{
+color:#5E42DB;
+font-family: 'Roboto';
+font-size:20px;
+margin-top:20px;
+}
 
 .bandeauItem{
 width: 10rem;
@@ -50,7 +59,6 @@ margin:10px;
 background-color:#f5f6fa;
 border-radius:20px;
 padding:20px;
-
 }
 
 .more{
@@ -138,6 +146,109 @@ font-weight: bold;
 
 .picto{
 height: 30px;
+}
+
+a{
+text-decoration:none;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+.product img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.product h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.prix {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+
+.nouveau-prix {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f00;
+}
+
+.suggestion-wrapper {
+  display:flex;
+  justify-content:center;
+  margin-left: 50px;
+}
+
+
+.suggestion-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.suggestion-wrapper li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+ }
+
+.suggestion-wrapper img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+
+}
+
+.suggestion-wrapper h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.suggestion-wrapper .prix {
+  font-size: 16px;
+  color: #999;
+}
+
+.icons-wrapper {
+
+  bottom: 0;
+  right: 0;
+  display: flex;
+}
+
+.icons-wrapper i {
+  font-size: 40px;
+  color: #999;
+  cursor: pointer;
+}
+
+.icons-wrapper i:hover {
+  color: #f00;
 }
 
 
