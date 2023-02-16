@@ -36,9 +36,15 @@ public class NavbarController {
         listeCategories = categorieService.afficherCategories();
         model.addAttribute("listeCategories",listeCategories);
 
-        List<Animal> listeChiens = new ArrayList<>();
+        /*List<Animal> listeChiens = new ArrayList<>();
         listeChiens = animalService.listeParCategorie(1);
-        model.addAttribute("listeChiens",listeChiens);
+        model.addAttribute("listeChiens",listeChiens);*/
+
+        Iterable<Categorie> catalogue = new ArrayList<>();
+        catalogue = categorieService.afficherCategories();
+        System.out.println(catalogue);
+        model.addAttribute("catalogue",catalogue);
+
 
         return "accueil";
     }

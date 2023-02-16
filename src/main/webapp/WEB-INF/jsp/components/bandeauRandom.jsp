@@ -22,7 +22,6 @@
                     <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
                     <div class="card-body">
                     <h5>${animal.nom}</h5>
-                    <p class="more text-center">En savoir plus</p>
                   </div>
                   </div>
              </c:forEach>

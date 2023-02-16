@@ -15,10 +15,12 @@
      <c:if test="${!empty(listeCategories)}">
        <c:forEach var="categorie" items="${listeCategories}">
         <div class="bandeauItem col-2" >
+          <a href="#${categorie.categorie}">
             <img class="card-img-top bandeauImg" src="${categorie.photo}" alt="Card image cap">
             <div class="card-body">
             <h5>${categorie.categorie}</h5>
             </div>
+          </a>
          </div>
         </c:forEach>
      </c:if>

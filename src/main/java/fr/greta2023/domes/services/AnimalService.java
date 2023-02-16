@@ -9,4 +9,6 @@ import java.util.List;
 public interface AnimalService {
     public List<Animal> afficherAleatoires();
     public List<Animal> listeParCategorie(int idCategorie);
+
+
 }
