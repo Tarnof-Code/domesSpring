@@ -6,6 +6,6 @@ public interface ClientService {
 
     public boolean creerClient(Client client);
 
-    boolean connexionClient(Client client);
+    public Client connexionClient(Client client);
 }
 

@@ -33,7 +33,7 @@
 
 
 
-<div style="height:15rem"></div>
+<div style="height:16rem"></div>
     <%@ include file="../components/footer.jsp" %>
 </body>
 </html>

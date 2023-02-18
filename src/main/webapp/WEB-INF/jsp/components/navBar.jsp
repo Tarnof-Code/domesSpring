@@ -91,7 +91,12 @@
 				<ul class="navbar-nav ms-auto ">
 				    <li class="nav-item"><a class="nav-link" href="/accueil">Catalogue</a></li>
 					<li class="nav-item"><a class="nav-link" href="/panier">Mon panier</a></li>
-					<li class="nav-item"><a class="nav-link" href="/connexionInscription">S'inscrire/Se connecter</a></li>
+					<c:if test="${clientConnecte==nul}">
+					    <li class="nav-item"><a class="nav-link" href="/connexionInscription">S'inscrire/Se connecter</a></li>
+                    </c:if>
+                    <c:if test="${clientConnecte!=nul}">
+                        <li class="nav-item"><a class="nav-link" href="/compte">Mon compte</a></li>
+                    </c:if>
 					<li class="nav-item"><a class="nav-link" href="/aide">AIDE</a></li>
 				</ul>
 			</div>

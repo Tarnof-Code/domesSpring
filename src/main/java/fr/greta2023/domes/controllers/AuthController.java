@@ -8,10 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 
 @Controller
+@SessionScope
 public class AuthController {
     @Autowired
     private ClientService clientService;
@@ -26,17 +30,21 @@ public class AuthController {
 
         }
         System.out.println("on enregistre le client");
-        model.addAttribute("message","l'utilisateur est sauvegarde" );
         return "compte";
     }
 
     @PostMapping("/seConnecter")
-    public String connexionClient(@ModelAttribute("client") Client client,BindingResult result, Model model){
-        boolean isCorrect = clientService.connexionClient(client);
-        if(!isCorrect || result.hasErrors()){
-            return "connexionInscription";
+    public RedirectView connexionClient(@ModelAttribute("client") Client client,
+                                        BindingResult result,
+                                        Model model){
+        Client clientConnecte = clientService.connexionClient(client);
+        if(clientConnecte == null || result.hasErrors()){
+            model.addAttribute("erreurConnexion","Email inexistant ou mot de passe erroné");
+            return new RedirectView("/connexionInscription");
         }
-        return "compte";
+        model.addAttribute("clientConnecte",clientConnecte);
+        System.out.println(clientConnecte);
+        return new RedirectView("/accueil") ;
     }
 
 

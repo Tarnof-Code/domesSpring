@@ -90,4 +90,17 @@ public class Client {
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", login='" + login + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
+                '}';
+    }
 }

@@ -66,6 +66,11 @@ public class NavbarController {
         return "aide";
     }
 
+    @GetMapping("/compte")
+    public String goCompte() {
+        System.out.println("Page Mon compte");
+        return "compte";
+    }
     @ModelAttribute("client")
     public Client getDefaultClient(){
         return new Client();
