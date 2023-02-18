@@ -20,7 +20,7 @@
       <c:forEach var="categorie" items="${catalogue}">
            <div id="${categorie.categorie}" style="height:120px"></div>
            <div>
-                <h2 >LES ${categorie.categorie}</h2>
+                <h2 class="text-center">LES ${categorie.categorie}</h2>
            </div>
            <c:forEach var="animal" items="${categorie.listAnimaux}">
                <div class="col-12 col-lg-6" >

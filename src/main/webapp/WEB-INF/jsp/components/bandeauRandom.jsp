@@ -20,7 +20,7 @@
           <c:forEach var="animal" items="${listeAleatoire}">
                   <div class="bandeauItem col-2" >
                     <a href="/produit?id=${animal.id}">
-                        <img class="card-img-top bandeauImg" src="${animal.photo}" alt="Card image cap">
+                        <img class="card-img-top bandeauImg" src="${animal.photo}" alt="${animal.race}">
                         <div class="card-body">
                         <h5>${animal.nom}</h5>
                         </div>

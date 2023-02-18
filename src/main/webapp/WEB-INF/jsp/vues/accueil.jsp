@@ -23,12 +23,12 @@
 <div class="container">
         <br><br>
         <div >
-            <h2>Ils vous attendent...</h2>
+            <h2 class="text-center">Ils vous attendent...</h2>
             <%@ include file="../components/bandeauRandom.jsp" %>
         </div>
         <br><br>
         <div>
-            <h2>Nos catégories</h2>
+            <h2 class="text-center">Nos catégories</h2>
             <%@ include file="../components/categoriesAccueil.jsp" %>
         </div>
 

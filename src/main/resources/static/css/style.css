@@ -13,7 +13,18 @@ color:#5E42DB;
 font-family: 'Roboto';
 font-weight:bold;
 font-size:25px;
-text-align:center;
+}
+
+h3{
+color:#5E42DB;
+font-family: 'Roboto';
+font-size:20px;
+}
+
+h4{
+color:#5E42DB;
+font-family: 'Roboto';
+font-size:15px;
 }
 
 h5{
@@ -29,13 +40,6 @@ border: solid;
 border-color:red;
 
 }
-
-/*.sectionContainer{
-width:50%;
-border: solid;
-border-color:blue;
-
-}*/
 
 .en-savoir-plus{
 color:#5E42DB;
@@ -155,7 +159,7 @@ text-decoration:none;
 .product {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -168,6 +172,7 @@ text-decoration:none;
   height: auto;
   margin-bottom: 10px;
   border-radius: 20px;
+  justify-content:center;
 }
 
 .product h2 {
@@ -188,32 +193,16 @@ text-decoration:none;
 }
 
 
-.nouveau-prix {
-  font-size: 24px;
+.prixAnimal {
+  font-size: 30px;
   font-weight: bold;
   color: #f00;
 }
 
 .suggestion-wrapper {
   display:flex;
-  justify-content:center;
-  margin-left: 50px;
+  justify-content:start;
 }
-
-
-.suggestion-wrapper ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.suggestion-wrapper li {
-  margin-bottom: 10px;
-  margin-top: 10px;
- }
 
 .suggestion-wrapper img {
   width: 100%;
@@ -235,10 +224,10 @@ text-decoration:none;
 }
 
 .icons-wrapper {
-
-  bottom: 0;
-  right: 0;
   display: flex;
+  justify-content:space-between;
+  padding:0% 12%;
+  margin-top:20px;
 }
 
 .icons-wrapper i {

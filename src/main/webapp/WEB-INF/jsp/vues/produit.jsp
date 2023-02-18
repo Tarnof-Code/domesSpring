@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -17,35 +18,22 @@
 
 	<div class="container">
 		<div class="row">
-		    <div style="height:20px"></div>
-			<div class="col-8">
-					<div class="product">
-                      <img src="<c:out value="${animalSelection.photo}" />" alt="Nom du produit">
-                      <h2><c:out value="${animalSelection.nom}" /></h2>
-                      <p><c:out value="${animalSelection.description}" /></p>
-                      <div class="prix">
-                        <span class="nouveau-prix"><c:out value="${animalSelection.prix}" />€</span>
-                      </div>
-                        <div class="icons-wrapper">
-                            <i class="far fa-heart"></i>
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
+			<div class="col-12 col-lg-8">
+			    <div style="height:20px"></div>
+				<%@ include file="../components/ficheProduit.jsp" %>
 			</div>
-			
-			<div class="col-4">
+			<div class="col-0 col-lg-1"></div>
+			<div class="col-12 col-lg-3" >
                 <%@ include file="../components/aside.jsp" %>
 			</div>
 		</div>
 	  </div>
-
 	</div>
 </main>
-	
-	
-	
-<div class="fixed-bottom">
-	<%@ include file="../components/footer.jsp" %>
-</div>
+
+
+
+<div style="height:15rem"></div>
+    <%@ include file="../components/footer.jsp" %>
 </body>
 </html>
