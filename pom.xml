@@ -20,6 +20,9 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -55,6 +58,11 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>

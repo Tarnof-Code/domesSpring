@@ -27,9 +27,6 @@ public class Client {
     private String telephone;
 
     @Size(min=2,message = "Doit contenir au moins 2 caractères")
-    private String login;
-
-    @Size(min=2,message = "Doit contenir au moins 2 caractères")
     private String motDePasse;
 
     public Client() {
@@ -75,14 +72,6 @@ public class Client {
         this.telephone = telephone;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
     public String getMotDePasse() {
         return motDePasse;
     }
@@ -99,7 +88,6 @@ public class Client {
                 ", nom='" + nom + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", login='" + login + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 '}';
     }
