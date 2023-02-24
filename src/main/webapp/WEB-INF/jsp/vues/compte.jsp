@@ -11,6 +11,7 @@
 </head>
 <body class="bg-light">
 	<%@ include file="../components/navBar.jsp" %>
+<main>
 	<div class="container">
 		<div class="row">
 			<div class="col-4 bg-secondary">
@@ -85,6 +86,6 @@
 		<p>Numero de commande</p>
 		<p></p>
 	</div>
-	
+</main>
 </body>
 </html>

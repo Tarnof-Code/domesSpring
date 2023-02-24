@@ -43,10 +43,6 @@
               <form:errors path="telephone" cssClass="error"/>
           </div>
           <div class="form-group">
-            <form:input placeholder="Choisissez un login" path="login" type="text" />
-            <form:errors path="login" cssClass="error"/>
-          </div>
-          <div class="form-group">
             <form:input placeholder="Mot de passe" path="motDePasse" type="password" />
             <form:errors path="motDePasse" cssClass="error"/>
           </div>
