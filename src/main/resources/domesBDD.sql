@@ -183,14 +183,14 @@ ALTER TABLE `favoris` ADD CONSTRAINT `FK_favoris_animal` FOREIGN KEY (`id_animal
 DROP TABLE IF EXISTS `panier`;
 
 CREATE TABLE `panier` (
-  `id_panier` int(5) NOT NULL AUTO_INCREMENT,
-  `id_client` int(5) NOT NULL,
-  `id_animal` int(5) NOT NULL,
-  PRIMARY KEY (`id_panier`)
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `client_id` int(5) NOT NULL,
+  `animal_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `panier` ADD CONSTRAINT `FK_panier_client` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`);
-ALTER TABLE `panier` ADD CONSTRAINT `FK_panier_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id`);
+ALTER TABLE `panier` ADD CONSTRAINT `FK_panier_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+ALTER TABLE `panier` ADD CONSTRAINT `FK_panier_animal` FOREIGN KEY (`animal_id`) REFERENCES `animal` (`id`);
 
 
 --INSERT INTO `panier` VALUES (1,1,1),(2,1,2),(3,2,3);

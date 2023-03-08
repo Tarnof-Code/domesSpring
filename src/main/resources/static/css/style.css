@@ -3,6 +3,8 @@
 main{
 margin-top:120px;
 }
+
+
 h1{
 font-size: 32px;
 text-align:center;
@@ -231,6 +233,7 @@ text-decoration:none;
   justify-content:space-between;
   padding:0% 12%;
   margin-top:20px;
+  max-width:100%
 }
 
 .icons-wrapper i {
@@ -292,15 +295,24 @@ margin-bottom:10px;
 }
 
 .total-panier {
- margin: 20px auto 0;
- padding: 10px 20px;
- font-weight:bold
+
+ font-weight:bold;
+ display:flex;
+ align-items:start;
+ justify-content:center
+}
+
+.total-panier-elt{
+ display:flex;
+ text-align:center;
+ justify-content:center;
 }
 
 .prix-panier{
 color:#FF8B00;
 font-weight:bold;
-font-size:25px
+font-size:25px;
+max-height:100%;
 }
 
 /* Styles spécifiques au formulaire d'inscription

@@ -24,6 +24,7 @@ public class AccueilController {
     public String goProduit(@RequestParam("id") int id, Model model){
         Animal animalSelection = animalRepository.findById(id);
         model.addAttribute("animalSelection",animalSelection);
+        System.out.println();
 
         List<Animal> listeAnimauxAleatoire = animalService.afficherAleatoires();
         model.addAttribute("listeAleatoire",listeAnimauxAleatoire);

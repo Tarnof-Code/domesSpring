@@ -6,20 +6,22 @@
         <div class="container">
           <div class="row">
               <div class="col-lg-4 text-center" >
-                    <img src="<c:out value="${animalSelection.photo}" />" alt="${animalSelection.race}">
+                    <img src="${animalSelection.photo}" alt="${animalSelection.race}">
                     <div class="prix" >
-                        <span class="prixAnimal"><c:out value="${animalSelection.prix}"/> €</span>
+                        <span class="prixAnimal">${animalSelection.prix} €</span>
                     </div>
                     <div class="icons-wrapper" >
                         <i class="far fa-heart"></i>
+                        <a href="/ajouterPanier?id=${animalSelection.id}">
                         <i class="fas fa-shopping-cart"></i>
+                        </a>
                     </div>
               </div>
               <div class="col-lg-8" >
-                   <h2><c:out value="${animalSelection.nom}" /></h2>
-                   <h4>Catégorie: <c:out value="${animalSelection.categorie.categorie}" /></h4>
-                   <h4>Race: <c:out value="${animalSelection.race}" /></h4>
-                  <p><c:out value="${animalSelection.description}" /></p>
+                   <h2>${animalSelection.nom}</h2>
+                   <h4>Catégorie: ${animalSelection.categorie.categorie}</h4>
+                   <h4>Race: ${animalSelection.race}</h4>
+                  <p>${animalSelection.description}</p>
               </div>
           </div>
         </div>

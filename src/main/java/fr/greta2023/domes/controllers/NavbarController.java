@@ -7,6 +7,7 @@ import fr.greta2023.domes.beans.Client;
 import fr.greta2023.domes.services.AnimalService;
 import fr.greta2023.domes.services.AnimalServiceImpl;
 import fr.greta2023.domes.services.CategorieService;
+import fr.greta2023.domes.services.PanierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ public class NavbarController {
 
     @Autowired
     private CategorieService categorieService;
+
+    @Autowired
+    private PanierService panierService;
 
     @ModelAttribute("clientConnecte")
     public Client getClientConnecte(HttpSession session) {
@@ -57,9 +61,19 @@ public class NavbarController {
 
     @GetMapping("/panier")
     public String goPanier(Model model){
+
+        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+
         List<Animal> listeAnimauxAleatoire = animalService.afficherAleatoires();
         model.addAttribute("listeAleatoire",listeAnimauxAleatoire);
-        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+
+        List<Animal> listePanier = panierService.listerAnimauxDuPanier(clientConnecte);
+        model.addAttribute("listePanier",listePanier);
+
+        double prixTotal = panierService.calculerPrixTotalDuPanier(clientConnecte);
+        model.addAttribute("prixTotal",prixTotal);
+
+
         if(clientConnecte != null){
             return "panier";
         }
