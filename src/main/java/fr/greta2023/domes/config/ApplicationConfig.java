@@ -32,7 +32,7 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
-    @Bean
+   /* @Bean
     public DataSourceInitializer dataSourceInitializer() {
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
         databasePopulator.addScript(new ClassPathResource("domesBDD.sql"));
@@ -42,6 +42,6 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         dataSourceInitializer.setDatabasePopulator(databasePopulator);
 
         return dataSourceInitializer;
-    }
+    }*/
 
 }

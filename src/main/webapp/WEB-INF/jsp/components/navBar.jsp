@@ -36,9 +36,9 @@
 				
 				
 				<div class="filters">
-				
-						<div class="dropdown">
-							<button class="btn btn-light dropdown-toggle" type="button"
+						<div class="dropdown" style="width:100%">
+							<button class="btn btn-light dropdown-toggle"
+							    type="button"
 								id="catégories" data-bs-toggle="dropdown"
 								aria-expanded="false">
 								Catégories
@@ -52,30 +52,7 @@
 							</ul>
 						</div>
 						
-						<div class="dropdown">
-							<button class="btn btn-light dropdown-toggle" type="button"
-								id="taille" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Taille
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="taille">
-								<li><a class="dropdown-item" href="#">Petit</a></li>
-								<li><a class="dropdown-item" href="#">Moyen</a></li>
-								<li><a class="dropdown-item" href="#">Grand</a></li>
-							</ul>
-						</div>
-						
-						<div class="dropdown">
-							<button class="btn btn-light dropdown-toggle" type="button"
-								id="couleur" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Couleur
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="couleur">
-								<li><a class="dropdown-item" href="#">Claire</a></li>
-								<li><a class="dropdown-item" href="#">Sombre</a></li>
-							</ul>
-						</div>
+
 						
 				</div>
 			</div>
@@ -91,7 +68,7 @@
 				<ul class="navbar-nav ms-auto ">
 				    <li class="nav-item"><a class="nav-link" href="/accueil">Catalogue</a></li>
 				    <c:if test="${clientConnecte!=nul}">
-					    <li class="nav-item"><a class="nav-link" href="/panier">Mon panier</a></li>
+					    <li class="nav-item"><a class="nav-link" href="/panier?id=${clientConnecte.id}">Mon panier</a></li>
 					</c:if>
 					<c:if test="${clientConnecte==nul}">
 					    <li class="nav-item"><a class="nav-link" href="/connexionInscription">S'inscrire/Se connecter</a></li>

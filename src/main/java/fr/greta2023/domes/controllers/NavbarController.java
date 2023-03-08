@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class NavbarController {
 
     @Autowired
     private CategorieService categorieService;
+
+    @ModelAttribute("clientConnecte")
+    public Client getClientConnecte(HttpSession session) {
+        return (Client) session.getAttribute("clientConnecte");
+    }
+
 
     @GetMapping("/accueil")
     public String goAccueil( Model model){
@@ -49,9 +56,14 @@ public class NavbarController {
     }
 
     @GetMapping("/panier")
-    public String goPanier(){
-        System.out.println("Panier");
-        return "panier";
+    public String goPanier(Model model){
+        List<Animal> listeAnimauxAleatoire = animalService.afficherAleatoires();
+        model.addAttribute("listeAleatoire",listeAnimauxAleatoire);
+        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+        if(clientConnecte != null){
+            return "panier";
+        }
+        return "connexionInscription";
     }
 
     @GetMapping("/connexionInscription")

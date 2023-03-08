@@ -1,6 +1,7 @@
 <meta charset="ISO-8859-1">
 <title>navBar</title>
 <script src="https://kit.fontawesome.com/a41e9403cf.js" crossorigin="anonymous"></script>
+<head>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"

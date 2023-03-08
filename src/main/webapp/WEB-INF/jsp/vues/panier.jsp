@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,87 +8,53 @@
 <body>
 	
 	<%@ include file="../components/navBar.jsp" %>
-	<h1>Mon panier</h1>
-	<div class="container">
-		<div class="row">
-			<div class="col-8">
-					<section style="border: solid;"> 
-						<h2>Votre Panier</h2>
-						<div>*Scroll du panier*
-							<article style="border: solid;">
-								<h4>Nom du truc</h4>
-								<img>img
-								<p>Description : Causam a nec est est exitium nunc a locuta pertinacior fama fides ut ut ut ulla arbitror ut iam pertinacior hoc locuta rata explanare nobilem inde hoc Aginatium ut nobilem maioribus pertinacior documentorum ulla quae documentorum praecipitem Aginatium nobilem documentorum praecipitem nec ut causam ulla rata ut explanare hoc causam.</p>
-								<div>
-									<span>-Prix-</span>
-									<span>-Quantité-</span>
-									<button>Like</button>
-									<button>Ajouter</button>
-								</div>
-							</article>
-							<article style="border: solid;">
-								<h4>Nom du truc</h4>
-								<img>img
-								<p>Description : Causam a nec est est exitium nunc a locuta pertinacior fama fides ut ut ut ulla arbitror ut iam pertinacior hoc locuta rata explanare nobilem inde hoc Aginatium ut nobilem maioribus pertinacior documentorum ulla quae documentorum praecipitem Aginatium nobilem documentorum praecipitem nec ut causam ulla rata ut explanare hoc causam.</p>
-								<div>
-									<span>-Prix-</span>
-									<span>-Quantité-</span>
-									<button>Like</button>
-									<button>Ajouter</button>
-								</div>
-							</article>
-						</div>
-						<span>Total : </span>
-						<span> [LE PRIX] </span>
-						<a href="/paiement">Acheter le panier</a>
-					</section>
-			</div>
-			<div class="col-4">
-					<aside style="border: solid;">
-						<h2>Aside de proposition de ventes</h2>
-						<article style="border: solid;">
-							<h4>Nom du truc</h4>
-							<img>img
-							<p>Description : Causam a nec est est exitium nunc a locuta pertinacior fama fides ut ut ut ulla arbitror ut iam pertinacior hoc locuta rata explanare nobilem inde hoc Aginatium ut nobilem maioribus pertinacior documentorum ulla quae documentorum praecipitem Aginatium nobilem documentorum praecipitem nec ut causam ulla rata ut explanare hoc causam.</p>
-							<div>
-								<span>-Prix-</span>
-								<span>-Quantité-</span>
-								<button>Like</button>
-								<button>Ajouter</button>
-							</div>
-						</article>
-						<article style="border: solid;">
-							<h4>Nom du truc</h4>
-							<img>img
-							<p>Description : Causam a nec est est exitium nunc a locuta pertinacior fama fides ut ut ut ulla arbitror ut iam pertinacior hoc locuta rata explanare nobilem inde hoc Aginatium ut nobilem maioribus pertinacior documentorum ulla quae documentorum praecipitem Aginatium nobilem documentorum praecipitem nec ut causam ulla rata ut explanare hoc causam.</p>
-							<div>
-								<span>-Prix-</span>
-								<span>-Quantité-</span>
-								<button>Like</button>
-								<button>Ajouter</button>
-							</div>
-						</article>
-						<article style="border: solid;">
-							<h4>Nom du truc</h4>
-							<img>img
-							<p>Description : Causam a nec est est exitium nunc a locuta pertinacior fama fides ut ut ut ulla arbitror ut iam pertinacior hoc locuta rata explanare nobilem inde hoc Aginatium ut nobilem maioribus pertinacior documentorum ulla quae documentorum praecipitem Aginatium nobilem documentorum praecipitem nec ut causam ulla rata ut explanare hoc causam.</p>
-							<div>
-								<span>-Prix-</span>
-								<span>-Quantité-</span>
-								<button>Like</button>
-								<button>Ajouter</button>
-							</div>
-						</article>
-					</aside>
-			</div>
-		</div>
-	</div>
-	
-	
-	<br>
-	
-	
-	
+	<main>
+           <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div style="height:20px"></div>
+                        <div class="mon_panier_titre">
+                            <h2 style="color:#FF8B00">Mon panier</h2>
+                        </div>
+                        <div class="row articles" style="height=20%">
+                             <div class="col-5" >
+                                 <img src="/images/animaux/chats/junior.png" class="bandeauImg">
+                             </div>
+                             <div class="col-5 d-flex flex-column justify-content-center" >
+                               <H3>Junior</H3>
+                               <p>Angorra</p>
+                               <h6 class="prix-panier">800.00 EUR</h6>
+                               <p class="en-savoir-plus"><a target="_blank" href="/produit?id=2">En savoir plus</a></p>
+                             </div>
+                             <div class="col-1 d-flex align-items-center justify-content-center mx-2" >
+                                  <div class="icons-wrapper">
+                                    <i class="fas fa-trash-alt"></i>
+                                  </div>
+                             </div>
+                        </div>
+                        <div style="height:20px"></div>
+                        <div class="row total-panier" >
+                            <div class="col-3 d-flex align-items-center" >
+                                <p style="font-size:20px">TOTAL : </p>
+                            </div>
+                            <div class="col-3 d-flex align-items-center" >
+                                <p class="prix-panier">800 EUR</p>
+                            </div>
+                            <div class="col-5" >
+                                <button class="submit-button" style="margin:0;max-width:100%">Acheter maintenant</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-0 col-lg-2"></div>
+                    <div class="col-12 col-lg-3" >
+                         <div style="height:20px"></div>
+                        <%@ include file="../components/aside.jsp" %>
+                    </div>
+                </div>
+           </div>
+    <div style="height:20rem"></div>
+    </main>
 	<%@ include file="../components/footer.jsp" %>
 </body>
 </html>
