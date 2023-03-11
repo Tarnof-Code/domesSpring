@@ -20,7 +20,6 @@ heartIcons.forEach((heartIcon) => {
 });
 
 
-
 inCartIcons.forEach((inCartIcon) => {
 
   let isInPanier = inCartIcon.getAttribute('data-isInPanier');
