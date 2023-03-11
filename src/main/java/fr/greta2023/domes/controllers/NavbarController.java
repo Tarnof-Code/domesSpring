@@ -13,12 +13,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@SessionAttributes("listePanier")
 public class NavbarController {
 
     @Autowired
@@ -46,10 +48,6 @@ public class NavbarController {
         Iterable<Categorie> listeCategories = new ArrayList<>();
         listeCategories = categorieService.afficherCategories();
         model.addAttribute("listeCategories",listeCategories);
-
-        /*List<Animal> listeChiens = new ArrayList<>();
-        listeChiens = animalService.listeParCategorie(1);
-        model.addAttribute("listeChiens",listeChiens);*/
 
         Iterable<Categorie> catalogue = new ArrayList<>();
         catalogue = categorieService.afficherCategories();

@@ -2,10 +2,11 @@ package fr.greta2023.domes.services;
 
 import fr.greta2023.domes.beans.Animal;
 import fr.greta2023.domes.beans.Client;
-import fr.greta2023.domes.beans.Panier;
+import fr.greta2023.domes.beans.ArticlePanier;
 import fr.greta2023.domes.repository.PanierRepository;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,20 +20,27 @@ public class PanierSeviceImpl implements PanierService{
     }
 
     @Override
-    public void ajouterAuPanier(Client client, Animal animal) {
-        Panier panier = new Panier();
-        panier.setClient(client);
-        panier.setAnimal(animal);
-        panierRepository.save(panier);
+    public void ajouterAuPanier(Client client, HttpSession session, Animal animal) {
+        ArticlePanier articlePanier = new ArticlePanier();
+        articlePanier.setClient(client);
+        articlePanier.setAnimal(animal);
+        panierRepository.save(articlePanier);
+
+    }
+
+    @Override
+    public void supprimerDuPanier(Client client, HttpSession session, Animal animal) {
+        ArticlePanier animalASuppr = panierRepository.findByClientAndAnimal(client,animal);
+        panierRepository.delete(animalASuppr);
     }
 
 
     @Override
     public List<Animal> listerAnimauxDuPanier(Client client) {
-        List<Panier> panierList = panierRepository.findByClient(client);
+        List<ArticlePanier> articlePanierList = panierRepository.findByClient(client);
         List<Animal> animalList = new ArrayList<>();
-        for (Panier panier : panierList) {
-            animalList.add(panier.getAnimal());
+        for (ArticlePanier articlePanier : articlePanierList) {
+            animalList.add(articlePanier.getAnimal());
         }
         return animalList;
     }

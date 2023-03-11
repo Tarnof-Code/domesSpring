@@ -20,7 +20,9 @@
 
                             <div class="col-2 d-flex align-items-center justify-content-center mx-auto" >
                               <div class="icons-wrapper" >
-                                    <i class="fas fa-trash-alt" style="max-width:100%"></i>
+                                     <a href="/supprimerDuPanier?id=${animal.id}">
+                                        <i class="fas fa-trash-alt" style="max-width:100%"></i>
+                                     </a>
                               </div>
                             </div>
                        </div>

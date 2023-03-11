@@ -1,12 +1,11 @@
 package fr.greta2023.domes.beans;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 
 @Entity
 @Table(name = "panier")
-public class Panier {
+public class ArticlePanier {
 
 
     @Id
