@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 <div class="d-flex flex-column justify-content-start ml-3">
@@ -11,30 +12,33 @@
                     <div class="prix" >
                         <span class="prixAnimal">${animalSelection.prix} €</span>
                     </div>
+
                     <div class="icons-wrapper" >
                         <i class="fas fa-heart"></i>
 
-                        <a href="/ajouterPanier?id=${animalSelection.id}">
-                            <c:if test="${clientConnecte==null}">
-                                <i class="fas fa-shopping-cart"></i>
-                            </c:if>
-                            <c:if test="${clientConnecte != null}">
-                                <c:set var="isInPanier" value="false" />
-                                <c:forEach var="animal" items="${listePanier}">
-                                    <c:if test="${animal.id == animalSelection.id}">
-                                        <c:set var="isInPanier" value="true" />
-                                    </c:if>
-                                </c:forEach>
-                                <c:choose>
-                                    <c:when test="${isInPanier}">
-                                        <i class="fas fa-shopping-cart" style="color:red"></i>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:if>
-                        </a>
+                        <c:if test="${clientConnecte==null}">
+                           <a href="/connexionInscription">
+                           <i class="fas fa-shopping-cart"></i>
+                           </a>
+                        </c:if>
+                        <c:if test="${clientConnecte != null}">
+                            <c:set var="isInPanier" value="false" />
+                            <c:forEach var="animal" items="${listePanier}">
+                                <c:if test="${animal.id == animalSelection.id}">
+                                    <c:set var="isInPanier" value="true" />
+                                </c:if>
+                            </c:forEach>
+                            <a href="#" class="ajouter-panier" data-id="${animalSelection.id}"  >
+                               <c:choose>
+                                   <c:when test="${isInPanier}">
+                                       <i class="fas fa-shopping-cart inCart" style="color:red" data-isInPanier="${isInPanier}"></i>
+                                   </c:when>
+                                   <c:otherwise>
+                                       <i class="fas fa-shopping-cart notInCart" ></i>
+                                   </c:otherwise>
+                               </c:choose>
+                            </a>
+                        </c:if>
                     </div>
               </div>
               <div class="col-lg-8" >
@@ -46,4 +50,6 @@
           </div>
         </div>
 </div>
-<script src="/js/script.js"></script>
+<script src="/js/script.js">
+    let isInPanier = ${isInPanier};
+</script>

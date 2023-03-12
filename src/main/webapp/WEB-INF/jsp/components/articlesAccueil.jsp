@@ -59,16 +59,16 @@
                                                <c:set var="isInPanier" value="true" />
                                            </c:if>
                                        </c:forEach>
-                                    <a href="#" class="ajouter-panier" data-id="${animal.id}"  >
-                                       <c:choose>
-                                           <c:when test="${isInPanier}">
-                                               <i class="fas fa-shopping-cart inCart" style="color:red" data-isInPanier="${isInPanier}"></i>
-                                           </c:when>
-                                           <c:otherwise>
-                                               <i class="fas fa-shopping-cart notInCart" ></i>
-                                           </c:otherwise>
-                                       </c:choose>
-                                    </a>
+                                       <a href="#" class="ajouter-panier" data-id="${animal.id}"  >
+                                           <c:choose>
+                                               <c:when test="${isInPanier}">
+                                                   <i class="fas fa-shopping-cart inCart" style="color:red" data-isInPanier="${isInPanier}"></i>
+                                               </c:when>
+                                               <c:otherwise>
+                                                   <i class="fas fa-shopping-cart notInCart" ></i>
+                                               </c:otherwise>
+                                           </c:choose>
+                                       </a>
                                    </c:if>
                             </div>
                          </div>

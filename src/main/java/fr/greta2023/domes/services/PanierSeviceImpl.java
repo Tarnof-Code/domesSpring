@@ -34,7 +34,6 @@ public class PanierSeviceImpl implements PanierService{
         panierRepository.delete(animalASuppr);
     }
 
-
     @Override
     public List<Animal> listerAnimauxDuPanier(Client client) {
         List<ArticlePanier> articlePanierList = panierRepository.findByClient(client);
@@ -44,6 +43,7 @@ public class PanierSeviceImpl implements PanierService{
         }
         return animalList;
     }
+
 
     @Override
     public double calculerPrixTotalDuPanier(Client client) {

@@ -34,6 +34,20 @@ text-align:center;
 
 }
 
+.cart-icon {
+  font-size: 25px;
+  display:flex;
+   margin-top:5px;
+}
+
+.cart-count {
+  font-size:10px;
+  margin-top:20px;
+}
+
+
+
+
 .mainContainer{
 display:flex;
 flex-direction:column;

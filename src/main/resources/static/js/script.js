@@ -2,6 +2,11 @@
 const heartIcons = document.querySelectorAll('.fa-heart');
 const inCartIcons = document.querySelectorAll('.inCart');
 const notInCartIcons = document.querySelectorAll('.notInCart');
+// Récupérer l'élément du badge
+const badge = document.querySelector('.cart-count');
+let cartCount = badge.getAttribute('data-cartCount');
+cartCount = parseInt(cartCount, 10)
+badge.textContent = cartCount
 
 // Ajout d'un événement "click" à chaque icône
 heartIcons.forEach((heartIcon) => {
@@ -29,9 +34,11 @@ inCartIcons.forEach((inCartIcon) => {
     if (isInPanier) {
       inCartIcon.style.color = '#999';
       isInPanier = false;
+      badge.textContent = cartCount -= 1
     } else {
       inCartIcon.style.color = 'red';
       isInPanier = true;
+      badge.textContent = cartCount += 1
     }
   });
 });
@@ -42,9 +49,12 @@ notInCartIcons.forEach((notInCartIcon) => {
     if (!cartClicked) {
       notInCartIcon.style.color = 'red';
       cartClicked = true;
+      // Mettre à jour la quantité d'éléments dans le panier
+      badge.textContent = cartCount += 1
     } else {
       notInCartIcon.style.color = '#999';
       cartClicked = false;
+      badge.textContent = cartCount -= 1
     }
 
   });
@@ -72,3 +82,11 @@ notInCartIcons.forEach((notInCartIcon) => {
             });
         });
     });
+
+
+
+
+
+
+
+

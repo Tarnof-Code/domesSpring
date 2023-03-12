@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"clientConnecte", "listePanier"})
+@SessionAttributes({"clientConnecte", "listePanier", "nombreArticlesPanier"})
 public class AuthController {
     @Autowired
     private ClientService clientService;

@@ -16,4 +16,5 @@ public interface PanierService {
     public void ajouterAuPanier(Client client, HttpSession session, Animal animal);
 
     public void supprimerDuPanier(Client client, HttpSession session, Animal animal);
+
 }

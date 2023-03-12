@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Mon panier</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 	
@@ -28,5 +29,7 @@
     <div style="height:20rem"></div>
     </main>
 	<%@ include file="../components/footer.jsp" %>
+	<script src="/js/script.js"></script>
 </body>
+
 </html>

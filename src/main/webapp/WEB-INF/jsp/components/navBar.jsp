@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="/css/style.css"/>
 
 </head>
@@ -67,16 +67,29 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto ">
 				    <li class="nav-item"><a class="nav-link" href="/accueil">Catalogue</a></li>
-				    <c:if test="${clientConnecte!=null}">
-					    <li class="nav-item"><a class="nav-link" href="/panier?id=${clientConnecte.id}">Mon panier</a></li>
-					</c:if>
 					<c:if test="${clientConnecte==null}">
 					    <li class="nav-item"><a class="nav-link" href="/connexionInscription">S'inscrire/Se connecter</a></li>
                     </c:if>
                     <c:if test="${clientConnecte!=null}">
-                        <li class="nav-item"><a class="nav-link" href="/compte">Compte de ${clientConnecte.prenom}</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/compte">
+                            Compte de ${clientConnecte.prenom}
+                            </a>
+                        </li>
                     </c:if>
-					<li class="nav-item"><a class="nav-link" href="/aide">AIDE</a></li>
+                     <c:if test="${clientConnecte!=null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/panier?id=${clientConnecte.id}">
+                            <div class="cart-icon">
+                                <i class="fas fa-shopping-cart" ></i>
+                                <div class="badge rounded-pill badge-notification bg-danger cart-count"
+                                     data-cartCount= "${listePanier.size()}">
+                                </div>
+                            </div>
+                            </a>
+                        </li>
+                     </c:if>
+			<%--    <li class="nav-item"><a class="nav-link" href="/aide">AIDE</a></li> --%>
 				</ul>
 			</div>
 
@@ -94,6 +107,8 @@
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous">
 	</script>
+
+
 	
 	
 
