@@ -4,10 +4,7 @@ package fr.greta2023.domes.controllers;
 import fr.greta2023.domes.beans.Animal;
 import fr.greta2023.domes.beans.Categorie;
 import fr.greta2023.domes.beans.Client;
-import fr.greta2023.domes.services.AnimalService;
-import fr.greta2023.domes.services.AnimalServiceImpl;
-import fr.greta2023.domes.services.CategorieService;
-import fr.greta2023.domes.services.PanierService;
+import fr.greta2023.domes.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +29,9 @@ public class NavbarController {
     @Autowired
     private PanierService panierService;
 
+    @Autowired
+    private FavorisService favorisService;
+
     @ModelAttribute("clientConnecte")
     public Client getClientConnecte(HttpSession session) {
         return (Client) session.getAttribute("clientConnecte");
@@ -53,6 +53,10 @@ public class NavbarController {
         catalogue = categorieService.afficherCategories();
         model.addAttribute("catalogue",catalogue);
 
+       /* Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+        model.addAttribute("listeFavoris",listeFavoris); */
+
 
         return "accueil";
     }
@@ -70,7 +74,6 @@ public class NavbarController {
 
         double prixTotal = panierService.calculerPrixTotalDuPanier(clientConnecte);
         model.addAttribute("prixTotal",prixTotal);
-
 
         if(clientConnecte != null){
             return "panier";
@@ -91,8 +94,12 @@ public class NavbarController {
     }
 
     @GetMapping("/compte")
-    public String goCompte() {
+    public String goCompte(Model model) {
         System.out.println("Page Mon compte");
+
+        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+        model.addAttribute("listeFavoris",listeFavoris);
         return "compte";
     }
     @ModelAttribute("client")

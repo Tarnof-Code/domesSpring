@@ -3,6 +3,7 @@ package fr.greta2023.domes.controllers;
 import fr.greta2023.domes.beans.Animal;
 import fr.greta2023.domes.beans.Client;
 import fr.greta2023.domes.services.ClientService;
+import fr.greta2023.domes.services.FavorisService;
 import fr.greta2023.domes.services.PanierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,14 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@SessionAttributes({"clientConnecte", "listePanier", "nombreArticlesPanier"})
+@SessionAttributes({"clientConnecte", "listePanier", "listeFavoris"})
 public class AuthController {
     @Autowired
     private ClientService clientService;
     @Autowired
     private PanierService panierService;
+    @Autowired
+    FavorisService favorisService;
 
     @PostMapping("/enregistrerClient")
     public String enregistrerClient(@Valid @ModelAttribute("client") Client client, BindingResult result, Model model){
@@ -52,7 +55,8 @@ public class AuthController {
         model.addAttribute("clientConnecte",clientConnecte);
         List<Animal> listePanier = panierService.listerAnimauxDuPanier(clientConnecte);
         model.addAttribute("listePanier",listePanier);
-
+        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+        model.addAttribute("listeFavoris",listeFavoris);
         return new RedirectView("/accueil") ;
     }
 

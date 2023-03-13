@@ -5,6 +5,7 @@ import fr.greta2023.domes.beans.Client;
 import fr.greta2023.domes.repository.AnimalRepository;
 import fr.greta2023.domes.services.AnimalService;
 import fr.greta2023.domes.services.AnimalServiceImpl;
+import fr.greta2023.domes.services.FavorisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class AccueilController {
     @Autowired
     AnimalService animalService;
 
+    @Autowired
+    FavorisService favorisService;
+
     @GetMapping("/produit")
     public String goProduit(@RequestParam("id") int id, Model model){
         Animal animalSelection = animalRepository.findById(id);
@@ -29,6 +33,9 @@ public class AccueilController {
         List<Animal> listeAnimauxAleatoire = animalService.afficherAleatoires();
         model.addAttribute("listeAleatoire",listeAnimauxAleatoire);
 
+//        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+//        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+//        model.addAttribute("listeFavoris",listeFavoris);
 
         return "produit";
     }

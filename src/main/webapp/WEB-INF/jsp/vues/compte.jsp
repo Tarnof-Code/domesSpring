@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,12 +66,7 @@
 			
 			
 			
-			<div class="col-4 bg-secondary">
-					<h2>MES COMPAGNONS FAVORIS</h2>
-					<input type="search" placeholder="Recherche parmis les commandes..">
-					<button type="submit">Search</button>
-					A travailler
-			</div>
+			<%@ include file="../components/favoris.jsp" %>
 		</div>
 	</div>
 	

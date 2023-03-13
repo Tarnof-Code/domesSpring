@@ -14,7 +14,30 @@
                     </div>
 
                     <div class="icons-wrapper" >
-                        <i class="fas fa-heart"></i>
+
+                        <c:if test="${clientConnecte==null}">
+                           <a href="/connexionInscription">
+                           <i class="fas fa-heart"></i>
+                           </a>
+                        </c:if>
+                        <c:if test="${clientConnecte != null}">
+                            <c:set var="isInFavoris" value="false" />
+                            <c:forEach var="animalFav" items="${listeFavoris}">
+                                <c:if test="${animalFav.id == animalSelection.id}">
+                                    <c:set var="isInFavoris" value="true" />
+                                </c:if>
+                            </c:forEach>
+                            <a href="#" class="ajouter-favoris" data-id="${animalSelection.id}"  >
+                               <c:choose>
+                                   <c:when test="${isInFavoris}">
+                                       <i class="fas fa-heart inFav" style="color:red" data-isInFavoris="${isInFavoris}"></i>
+                                   </c:when>
+                                   <c:otherwise>
+                                       <i class="fas fa-heart notInFav" ></i>
+                                   </c:otherwise>
+                               </c:choose>
+                            </a>
+                        </c:if>
 
                         <c:if test="${clientConnecte==null}">
                            <a href="/connexionInscription">
@@ -52,4 +75,5 @@
 </div>
 <script src="/js/script.js">
     let isInPanier = ${isInPanier};
+    let isInFavoris =${isInFavoris};
 </script>

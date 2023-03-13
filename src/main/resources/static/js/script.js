@@ -1,32 +1,44 @@
 // Récupération des icônes
-const heartIcons = document.querySelectorAll('.fa-heart');
+const inFavIcons = document.querySelectorAll('.inFav');
+const notInFavIcons = document.querySelectorAll('.notInFav');
 const inCartIcons = document.querySelectorAll('.inCart');
 const notInCartIcons = document.querySelectorAll('.notInCart');
+
 // Récupérer l'élément du badge
 const badge = document.querySelector('.cart-count');
 let cartCount = badge.getAttribute('data-cartCount');
 cartCount = parseInt(cartCount, 10)
 badge.textContent = cartCount
 
-// Ajout d'un événement "click" à chaque icône
-heartIcons.forEach((heartIcon) => {
+inFavIcons.forEach((inFavIcon) => {
+  let isInFavoris = inFavIcon.getAttribute('data-isInFavoris');
+  inFavIcon.addEventListener('click', () => {
+  console.log(isInFavoris)
+    if (isInFavoris) {
+      inFavIcon.style.color = '#999';
+      isInFavoris = false;
+    } else {
+      inFavIcon.style.color = 'red';
+      isInFavoris = true;
+    }
+  });
+});
+
+notInFavIcons.forEach((notInFavIcon) => {
   let heartClicked = false;
-  heartIcon.addEventListener('click', () => {
+  notInFavIcon.addEventListener('click', () => {
     if (!heartClicked) {
-      heartIcon.style.color = 'red';
+      notInFavIcon.style.color = 'red';
       heartClicked = true;
     } else {
-      heartIcon.style.color = '#999';
+      notInFavIcon.style.color = '#999';
       heartClicked = false;
     }
-    console.log("Like")
   });
-
 });
 
 
 inCartIcons.forEach((inCartIcon) => {
-
   let isInPanier = inCartIcon.getAttribute('data-isInPanier');
 
   inCartIcon.addEventListener('click', () => {
@@ -56,9 +68,7 @@ notInCartIcons.forEach((notInCartIcon) => {
       cartClicked = false;
       badge.textContent = cartCount -= 1
     }
-
   });
-
 });
 
     // Utilisation de jQuery.noConflict()
@@ -82,6 +92,24 @@ notInCartIcons.forEach((notInCartIcon) => {
             });
         });
     });
+
+     $j(document).ready(function() {
+            $j('.ajouter-favoris').click(function(event) {
+                event.preventDefault();
+                var animalId = $j(this).data('id');
+                $j.ajax({
+                    url: '/ajouterFavoris?id=' + animalId,
+                    type: 'GET',
+                    success: function(response) {
+                        console.log('Opération réussie!');
+    //                    alert('Votre panier a été mis à jour !');
+                    },
+                    error: function(xhr) {
+                        alert('Echec de l\'opération !!!');
+                    }
+                });
+            });
+        });
 
 
 
