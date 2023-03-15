@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
-<meta charset="ISO-8859-1">
+
 <title>navBar</title>
 <script src="https://kit.fontawesome.com/a41e9403cf.js" crossorigin="anonymous"></script>
 <link
@@ -72,7 +72,7 @@
                     </c:if>
                     <c:if test="${clientConnecte!=null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/compte">
+                            <a class="nav-link" href="/monCompte">
                             Compte de ${clientConnecte.prenom}
                             </a>
                         </li>

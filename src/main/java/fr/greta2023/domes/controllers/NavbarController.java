@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@SessionAttributes("listePanier")
 public class NavbarController {
 
     @Autowired
@@ -52,11 +51,6 @@ public class NavbarController {
         Iterable<Categorie> catalogue = new ArrayList<>();
         catalogue = categorieService.afficherCategories();
         model.addAttribute("catalogue",catalogue);
-
-       /* Client clientConnecte = (Client) model.getAttribute("clientConnecte");
-        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
-        model.addAttribute("listeFavoris",listeFavoris); */
-
 
         return "accueil";
     }
@@ -98,10 +92,33 @@ public class NavbarController {
         System.out.println("Page Mon compte");
 
         Client clientConnecte = (Client) model.getAttribute("clientConnecte");
-        List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
-        model.addAttribute("listeFavoris",listeFavoris);
-        return "compte";
+
+        if(clientConnecte!=null){
+            List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+            model.addAttribute("listeFavoris",listeFavoris);
+            return "compte";
+        }
+        return "connexionInscription";
     }
+
+    @GetMapping("/monCompte")
+    public String monCompte(Model model ){
+        System.out.println("Page Mon compte");
+
+        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+
+        if(clientConnecte!=null){
+            List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
+            model.addAttribute("listeFavoris",listeFavoris);
+            List<Animal> listePanier = panierService.listerAnimauxDuPanier(clientConnecte);
+            model.addAttribute("listePanier",listePanier);
+
+            return "monCompte";
+        }
+        return "connexionInscription";
+    }
+
+
     @ModelAttribute("client")
     public Client getDefaultClient(){
         return new Client();

@@ -112,9 +112,42 @@ notInCartIcons.forEach((notInCartIcon) => {
         });
 
 
+// Récupération des éléments HTML
+const pencilIcons = document.querySelectorAll('.modif-info');
+const submitButton = document.querySelector('.modif-info-button');
+const inputFields = document.querySelectorAll('input[readonly]');
+
+// Ajout d'un gestionnaire d'événement pour chaque icône crayon
+pencilIcons.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    inputFields[index].readOnly = false;
+    inputFields[index].style.borderColor = '#FF8B00';
+    icon.style.visibility = 'hidden';
+    submitButton.style.display = 'block';
 
 
+  });
+});
+
+// Ajout d'un gestionnaire d'événement pour le bouton "Valider les modifications"
+submitButton.addEventListener('click', () => {
+  // Remettre tous les champs en lecture seule
+  inputFields.forEach(input => {
+    input.readOnly = true;
+    inputFields[index].style.borderColor = '#ccc';
+  });
+      pencilIcons.forEach(icon => {
+        icon.style.visibility = 'visible';
+      });
 
 
+  // Masquer le bouton de soumission
+  submitButton.style.display = 'none';
+});
+
+function showMesAdresses() {
+         document.getElementById("mesAdresses").style.display = "block";
+         document.getElementById("compteInfos").style.display = "none";
+     }
 
 

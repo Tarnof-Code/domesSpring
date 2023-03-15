@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -21,30 +22,54 @@
           <div class="form-group">
             <form:input placeholder="Mot de passe" type="password" path="motDePasse" required="true"/>
           </div>
+          <div>
+             <p class="error text-center">${erreurConnexion}</p>
+          </div>
           <button type="submit" class="submit-button">Se connecter</button>
         </form:form>
 
          <form:form class="register-form col-10 col-lg-5" method="post" action="/enregistrerClient" modelAttribute="client" >
           <h2>Inscription</h2>
           <div class="form-group">
-            <form:input placeholder="Nom" path="nom" type="text" />
-            <form:errors path="nom" cssClass="error"/>
+             <div>
+                <form:input placeholder="Nom" path="nom" type="text" />
+             </div>
+             <div>
+                <form:errors path="nom" cssClass="error"/>
+             </div>
           </div>
           <div class="form-group">
-            <form:input placeholder="Prénom" path="prenom" type="text" />
-            <form:errors path="prenom" cssClass="error"/>
+              <div>
+                <form:input placeholder="Prénom" path="prenom" type="text" />
+              </div>
+              <div>
+                <form:errors path="prenom" cssClass="error"/>
+              </div>
           </div>
           <div class="form-group">
-            <form:input placeholder="Email" path="email" type="text" />
-            <form:errors path="email" cssClass="error"/>
+              <div>
+                <form:input placeholder="Email" path="email" type="email" />
+                <p class="error">${message}</p>
+              </div>
+              <div>
+                <form:errors path="email" cssClass="error"/>
+              </div>
           </div>
           <div class="form-group">
+            <div>
               <form:input placeholder="Téléphone" path="telephone" type="text" />
+            </div>
+            <div>
               <form:errors path="telephone" cssClass="error"/>
+            </div>
           </div>
           <div class="form-group">
-            <form:input placeholder="Mot de passe" path="motDePasse" type="password" />
-            <form:errors path="motDePasse" cssClass="error"/>
+            <div>
+              <form:input placeholder="Mot de passe" path="motDePasse" type="password" />
+            </div>
+            <div>
+              <form:errors path="motDePasse" cssClass="error"/>
+            </div>
           </div>
           <button class="submit-button" type="submit">S'inscrire</button>
         </form:form>

@@ -5,6 +5,8 @@ import fr.greta2023.domes.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class ClientServiceImpl implements ClientService {
     private ClientRepository clientRepository;
@@ -15,16 +17,19 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-    public boolean creerClient(Client client){
 
-        Client isClientExist = clientRepository.findByEmail(client.getEmail()); // IL existe
-
-        if(isClientExist !=null){
-
-            return false;
+    @Override
+    public boolean verifEmail(Client client){
+        Client isClientExist = clientRepository.findByEmail(client.getEmail());
+        if(isClientExist != null){
+            return true;
         }
-        clientRepository.save(client);
-        return true;
+        return false;
+    }
+
+    @Override
+    public Client creerClient(Client client){
+        return  clientRepository.save(client);
     }
 
     @Override
@@ -34,6 +39,21 @@ public class ClientServiceImpl implements ClientService {
             return clientConnecte;
         }
         return null;
+    }
+
+    @Override
+    public Client modifierClient(Client client, HttpSession session) {
+        Client clientAModifier = (Client) session.getAttribute("clientConnecte");
+        System.out.println("Client à modifier "+ clientAModifier);
+
+        clientAModifier.setNom(client.getNom());
+        clientAModifier.setPrenom(client.getPrenom());
+        clientAModifier.setTelephone(client.getTelephone());
+        clientAModifier.setMotDePasse(client.getMotDePasse());
+
+        Client clientModifie = clientRepository.save(clientAModifier);
+        System.out.println("Modification faites "+ clientModifie);
+        return clientModifie;
     }
 
 

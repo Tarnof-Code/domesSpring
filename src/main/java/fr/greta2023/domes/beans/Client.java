@@ -22,8 +22,7 @@ public class Client {
     @Pattern(regexp = "(^\\S+@\\S+$)", message = "Veuillez entrer un email valide")
     private String email;
 
-    @Size(min=10,message = "Téléphone non valide")
-    @Size(max=10,message = "Téléphone non valide")
+    @Size(min=10,max= 10, message = "Doit contenir 10 chiffres")
     private String telephone;
 
     @Size(min=2,message = "Doit contenir au moins 2 caractères")
