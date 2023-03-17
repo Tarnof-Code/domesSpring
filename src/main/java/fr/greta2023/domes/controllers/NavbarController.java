@@ -1,6 +1,7 @@
 package fr.greta2023.domes.controllers;
 
 
+import fr.greta2023.domes.beans.Adresse;
 import fr.greta2023.domes.beans.Animal;
 import fr.greta2023.domes.beans.Categorie;
 import fr.greta2023.domes.beans.Client;
@@ -21,15 +22,14 @@ public class NavbarController {
 
     @Autowired
     private AnimalService animalService;
-
     @Autowired
     private CategorieService categorieService;
-
     @Autowired
     private PanierService panierService;
-
     @Autowired
     private FavorisService favorisService;
+    @Autowired
+    private AdresseService adresseService;
 
     @ModelAttribute("clientConnecte")
     public Client getClientConnecte(HttpSession session) {
@@ -87,20 +87,6 @@ public class NavbarController {
         return "aide";
     }
 
-    @GetMapping("/compte")
-    public String goCompte(Model model) {
-        System.out.println("Page Mon compte");
-
-        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
-
-        if(clientConnecte!=null){
-            List<Animal> listeFavoris = favorisService.listerAnimauxFavoris(clientConnecte);
-            model.addAttribute("listeFavoris",listeFavoris);
-            return "compte";
-        }
-        return "connexionInscription";
-    }
-
     @GetMapping("/monCompte")
     public String monCompte(Model model ){
         System.out.println("Page Mon compte");
@@ -112,7 +98,8 @@ public class NavbarController {
             model.addAttribute("listeFavoris",listeFavoris);
             List<Animal> listePanier = panierService.listerAnimauxDuPanier(clientConnecte);
             model.addAttribute("listePanier",listePanier);
-
+            List<Adresse> mesAdresses = (List<Adresse>) adresseService.afficherAdresses(clientConnecte);
+            model.addAttribute("adresses",mesAdresses);
             return "monCompte";
         }
         return "connexionInscription";
@@ -123,6 +110,9 @@ public class NavbarController {
     public Client getDefaultClient(){
         return new Client();
     }
+
+    @ModelAttribute("adresse")
+    public Adresse getDefaultAdresse(){return new Adresse();}
 
 
 }

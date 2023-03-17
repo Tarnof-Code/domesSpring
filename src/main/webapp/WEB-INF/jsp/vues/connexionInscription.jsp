@@ -14,7 +14,7 @@
  <div style="height:2rem"></div>
  <div class="container">
     <div class="row">
-        <form:form class="login-form col-10 col-lg-5" method="post" action="/seConnecter" modelAttribute="client">
+        <form:form class="register-form col-10 col-lg-5" method="post" action="/seConnecter" modelAttribute="client">
           <h2>Connexion</h2>
           <div class="form-group">
             <form:input placeholder="Email" type="email" path="email" required="true"/>

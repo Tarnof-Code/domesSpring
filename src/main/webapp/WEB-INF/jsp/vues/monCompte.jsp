@@ -21,10 +21,9 @@
          <div id="compteInfos" class="col-10 col-lg-4 mr-1 mb-4">
              <%@ include file="../components/compteInfos.jsp"%>
          </div>
-         <div id="mesAdresses" class="monCompte col-10 col-lg-3 mt-4 mt-lg-0 mx-4 mb-4" style="display:none;">
+         <div id="mesAdresses" class="monCompte col-10 col-lg-4 mr-1 mb-4" style="display:none;">
               <%@ include file="../components/mesAdresses.jsp"%>
          </div>
-
          <div class="monCompte col-10 col-lg-3 mt-4 mt-lg-0 mx-4 mb-4">
              <%@ include file="../components/compteCommandes.jsp"%>
          </div>

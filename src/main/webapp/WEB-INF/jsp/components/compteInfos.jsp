@@ -11,7 +11,7 @@
           </div>
           <div class="form-group">
              <div>
-                <form:input value="${clientConnecte.nom}" path="nom" type="text" readonly="true" />
+                <form:input class="input-infos" value="${clientConnecte.nom}" path="nom" type="text" readonly="true" />
                 <i class="fa fa-pencil modif-info"></i>
              </div>
              <div>
@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
              <div>
-                <form:input value="${clientConnecte.prenom}" path="prenom" type="text" readonly="true"/>
+                <form:input class="input-infos" value="${clientConnecte.prenom}" path="prenom" type="text" readonly="true"/>
                 <i class="fa fa-pencil modif-info"></i>
              </div>
              <div>
@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
              <div>
-                  <form:input value="${clientConnecte.telephone}" path="telephone" type="text" readonly="true"/>
+                  <form:input class="input-infos" value="${clientConnecte.telephone}" path="telephone" type="text" readonly="true"/>
                   <i class="fa fa-pencil modif-info"></i>
              </div>
              <div>
@@ -38,7 +38,7 @@
           </div>
           <div class="form-group">
              <div>
-                <form:input value="${clientConnecte.motDePasse}" path="motDePasse" type="password" readonly="true"/>
+                <form:input class="input-infos" value="${clientConnecte.motDePasse}" path="motDePasse" type="password" readonly="true"/>
                 <i class="fa fa-pencil modif-info"></i>
              </div>
              <div>
@@ -46,7 +46,6 @@
              </div>
           </div>
           <button class="submit-button modif-info-button" type="submit" style="display:none" >Valider les modifications</button>
-          <button class="button" type="button" onclick="showMesAdresses()">Mes adresses</button>
+          <button class="submit-button " type="button" onclick="showMesAdresses()">Voir mes adresses</button>
 </form:form>
 
-<script src="/js/script.js"></script>

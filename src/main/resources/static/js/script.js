@@ -114,40 +114,76 @@ notInCartIcons.forEach((notInCartIcon) => {
 
 // Récupération des éléments HTML
 const pencilIcons = document.querySelectorAll('.modif-info');
-const submitButton = document.querySelector('.modif-info-button');
-const inputFields = document.querySelectorAll('input[readonly]');
+const submitInfos = document.querySelector('.modif-info-button');
+const inputInfos = document.querySelectorAll('.input-infos');
 
 // Ajout d'un gestionnaire d'événement pour chaque icône crayon
 pencilIcons.forEach((icon, index) => {
   icon.addEventListener('click', () => {
-    inputFields[index].readOnly = false;
-    inputFields[index].style.borderColor = '#FF8B00';
+    inputInfos[index].readOnly = false;
+    inputInfos[index].style.borderColor = '#FF8B00';
     icon.style.visibility = 'hidden';
-    submitButton.style.display = 'block';
-
-
+    submitInfos.style.display = 'block';
   });
 });
 
 // Ajout d'un gestionnaire d'événement pour le bouton "Valider les modifications"
-submitButton.addEventListener('click', () => {
+submitInfos.addEventListener('click', () => {
   // Remettre tous les champs en lecture seule
-  inputFields.forEach(input => {
+  inputInfos.forEach(input => {
     input.readOnly = true;
-    inputFields[index].style.borderColor = '#ccc';
+    inputInfos[index].style.borderColor = '#ccc';
   });
       pencilIcons.forEach(icon => {
         icon.style.visibility = 'visible';
       });
-
-
   // Masquer le bouton de soumission
-  submitButton.style.display = 'none';
+  submitInfos.style.display = 'none';
 });
 
 function showMesAdresses() {
          document.getElementById("mesAdresses").style.display = "block";
          document.getElementById("compteInfos").style.display = "none";
+         console.log("Je vais vers mes adresses")
      }
 
+function showMesInfos() {
+         document.getElementById("mesAdresses").style.display = "none";
+         document.getElementById("compteInfos").style.display = "block";
+         console.log("Je reviens vers mes infos")
+     }
 
+const pencilAdresses = document.querySelectorAll('.modif-adresse');
+const submitAdresses = document.querySelector('.modif-adresse-button');
+const nomAdresses = document.querySelectorAll('.text-center.input-adresse');
+const inputNumerosVoie = document.querySelectorAll('.input-adresse.numero-voie');
+const inputNomsVoie = document.querySelectorAll('.input-adresse.nom-voie');
+const inputCodesPostaux = document.querySelectorAll('.input-adresse.code-postal');
+const inputVilles = document.querySelectorAll('.input-adresse.ville');
+
+pencilAdresses.forEach((icon, index) => {
+  icon.addEventListener('click', () => {
+    // Rendre le champ "nom" éditable
+    nomAdresses[index].readOnly = false;
+    inputNumerosVoie[index].readOnly = false;
+    inputNomsVoie[index].readOnly = false;
+    inputCodesPostaux[index].readOnly = false;
+    inputVilles[index].readOnly = false;
+
+    nomAdresses[index].style.backgroundColor = "#FFFFFF";
+    inputNumerosVoie[index].style.backgroundColor = "#FFFFFF";
+    inputNomsVoie[index].style.backgroundColor = "#FFFFFF";
+    inputCodesPostaux[index].style.backgroundColor = "#FFFFFF";
+    inputVilles[index].style.backgroundColor = "#FFFFFF";
+
+    // Masquer l'icône du crayon
+    icon.style.display = 'none';
+    // Afficher les autres champs de l'adresse
+    inputNumerosVoie[index].style.display = 'block';
+    inputNomsVoie[index].style.display = 'block';
+    inputCodesPostaux[index].style.display = 'block';
+    inputVilles[index].style.display = 'block';
+    // Afficher le bouton de validation
+    submitAdresses.style.display = 'block';
+  });
+});

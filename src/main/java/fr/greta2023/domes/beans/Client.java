@@ -1,11 +1,10 @@
 package fr.greta2023.domes.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -27,6 +26,12 @@ public class Client {
 
     @Size(min=2,message = "Doit contenir au moins 2 caractères")
     private String motDePasse;
+
+    @OneToMany(mappedBy = "client",
+                cascade = CascadeType.ALL,
+                fetch = FetchType.EAGER,
+                orphanRemoval = true)
+    private List<Adresse> adresses = new ArrayList<>();
 
     public Client() {
     }
@@ -79,6 +84,14 @@ public class Client {
         this.motDePasse = motDePasse;
     }
 
+    public List<Adresse> getAdresses() {
+        return adresses;
+    }
+
+    public void setAdresses(List<Adresse> adresses) {
+        this.adresses = adresses;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -88,6 +101,7 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
+                ", adresses=" + adresses +
                 '}';
     }
 }

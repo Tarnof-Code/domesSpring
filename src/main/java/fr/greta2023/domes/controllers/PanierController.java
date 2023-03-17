@@ -65,7 +65,7 @@ public class PanierController {
 
 
     @GetMapping("/supprimerDuPanier")
-    public RedirectView supprimerDuPanier(@RequestParam("id") int id, HttpSession session, Model model){
+    public RedirectView supprimerDuPanier(@RequestParam("id") int id, HttpSession session){
         Client clientConnecte = (Client) session.getAttribute("clientConnecte");
         Animal animalToDel = animalRepository.findById(id);
         panierService.supprimerDuPanier(clientConnecte,session,animalToDel);
