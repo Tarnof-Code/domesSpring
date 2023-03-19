@@ -10,4 +10,9 @@ import java.util.List;
 @Repository
 public interface AdresseRepository extends CrudRepository<Adresse,Integer> {
     List<Adresse>  findByClient(Client client);
+    Adresse findById(int id);
+
+
+
+
 }

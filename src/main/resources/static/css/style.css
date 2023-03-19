@@ -368,6 +368,25 @@ cursor: pointer;
   color: #f00;
 }
 
+.fa-plus{
+margin-left:10px;
+cursor: pointer;
+}
+
+.fa-plus:hover {
+  color: #f00;
+}
+
+.fa-trash{
+margin-left:20px;
+cursor: pointer;
+}
+
+.fa-trash:hover {
+  color: #f00;
+}
+
+
 .input-adresse {
   border: 1px solid #FF8B00;
   background-color: #FEE8C8;

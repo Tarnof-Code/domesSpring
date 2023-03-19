@@ -1,7 +1,9 @@
 package fr.greta2023.domes.controllers;
 
+import fr.greta2023.domes.beans.Adresse;
 import fr.greta2023.domes.beans.Animal;
 import fr.greta2023.domes.beans.Client;
+import fr.greta2023.domes.services.AdresseService;
 import fr.greta2023.domes.services.ClientService;
 import fr.greta2023.domes.services.FavorisService;
 import fr.greta2023.domes.services.PanierService;
@@ -12,9 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.context.annotation.SessionScope;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -22,13 +21,15 @@ import java.util.List;
 
 @Controller
 @SessionAttributes({"clientConnecte", "listePanier", "listeFavoris"})
-public class AuthController {
+public class ClientController {
     @Autowired
     private ClientService clientService;
     @Autowired
     private PanierService panierService;
     @Autowired
     FavorisService favorisService;
+    @Autowired
+    AdresseService adresseService;
 
     @PostMapping("/enregistrerClient")
     public String enregistrerClient(@Valid @ModelAttribute("client") Client client, BindingResult result, Model model){
@@ -39,7 +40,8 @@ public class AuthController {
             return "connexionInscription";
         }
         if(result.hasErrors()){
-            return "connexionInscription";
+            System.out.println("Inscription refusée !");
+            return "redirect:connexionInscription";
         }
         clientService.creerClient(client);
         System.out.println("on enregistre le client");
@@ -69,13 +71,23 @@ public class AuthController {
     @PostMapping("/modifierClient")
     public String modifierClient(@Valid @ModelAttribute("client") Client client,
                                  BindingResult result,
-                                 HttpSession session){
+                                 HttpSession session,
+                                 Model model){
         if(result.hasErrors()){
-            return "monCompte";
+            return "redirect:/monCompte";
         }
         clientService.modifierClient(client, session);
         session.setAttribute("clientConnecte",client);
         System.out.println("Informations modifiées");
-        return "monCompte";
+
+        Client clientConnecte = (Client) model.getAttribute("clientConnecte");
+        List<Adresse> mesAdresses = (List<Adresse>) adresseService.afficherAdresses(clientConnecte);
+        model.addAttribute("adresses",mesAdresses);
+        return "redirect:/monCompte";
+    }
+
+    @ModelAttribute("adresse")
+    public Adresse getDefaultAdresse(){
+        return new Adresse();
     }
 }

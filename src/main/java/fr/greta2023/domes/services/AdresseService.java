@@ -10,12 +10,12 @@ import java.util.List;
 @Service
 public interface AdresseService {
 
-    public Adresse creerAdresse(Client client, HttpSession session);
+    public Adresse ajouterAdresse(Adresse adresse,Client client);
 
     public List<Adresse> afficherAdresses(Client client);
 
-    public  Adresse modifierAdresse(Client client, HttpSession session);
+    public  Adresse modifierAdresse(Adresse adresseAmodifier, Adresse nouvelleAdresse);
 
-    public void supprimerAdresse(Client client, HttpSession session);
+    public void supprimerAdresse(int id);
 
 }

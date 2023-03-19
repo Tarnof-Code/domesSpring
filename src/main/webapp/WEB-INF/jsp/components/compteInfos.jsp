@@ -46,6 +46,6 @@
              </div>
           </div>
           <button class="submit-button modif-info-button" type="submit" style="display:none" >Valider les modifications</button>
-          <button class="submit-button " type="button" onclick="showMesAdresses()">Voir mes adresses</button>
+          <button class="submit-button show-adresse-bouton" type="button" onclick="showMesAdresses()">Voir mes adresses</button>
 </form:form>
 

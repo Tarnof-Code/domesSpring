@@ -38,6 +38,6 @@ public class FavorisServiceImpl implements FavorisService{
     @Override
     public void supprimerDesFavoris(Client client, HttpSession session, Animal animal) {
         Favoris animalASuppr = favorisRepository.findByClientAndAnimal(client,animal);
-        favorisRepository.delete((animalASuppr));
+        favorisRepository.delete(animalASuppr);
     }
 }

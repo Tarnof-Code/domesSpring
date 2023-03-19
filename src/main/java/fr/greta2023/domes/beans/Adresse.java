@@ -1,6 +1,8 @@
 package fr.greta2023.domes.beans;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 
 @Entity
 public class Adresse {
@@ -9,11 +11,12 @@ public class Adresse {
     private int id;
 
     private String nom;
+
     private String numeroVoie;
 
     private String nomVoie;
 
-    private int codepostal;
+    private String codepostal;
 
     private String ville;
 
@@ -44,11 +47,11 @@ public class Adresse {
         this.nomVoie = nomVoie;
     }
 
-    public int getCodepostal() {
+    public String getCodepostal() {
         return codepostal;
     }
 
-    public void setCodepostal(int codepostal) {
+    public void setCodepostal(String codepostal) {
         this.codepostal = codepostal;
     }
 
