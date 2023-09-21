@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class AnimalServiceImpl implements AnimalService {
-
     private AnimalRepository animalRepository;
 
     @Autowired
@@ -23,48 +22,40 @@ public class AnimalServiceImpl implements AnimalService {
     CategorieService categorieService;
 
     @Override
+    public List<Animal> afficherAleatoires(){
+        List<Animal> listeAnimauxAleatoire = animalRepository.findRandomList();
+        try {
+            return listeAnimauxAleatoire;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+  /*  @Override
     public List<Animal> afficherAleatoires() {
 
-        long count = animalRepository.count();
+       try{
+            long count = animalRepository.count();
 
-        List animauxAleatoires = new ArrayList();
-        List listId = new ArrayList<>();
+            List animauxAleatoires = new ArrayList();
+            List listId = new ArrayList<>();
 
-        for (int i = 0; i < 6; i++) {
-            int id = (1 + (int) (Math.random() * (count)));
-            Animal animal = animalRepository.findById(id);
-            if (animal != null && !listId.contains(id)) {
-                animauxAleatoires.add(animal);
-                listId.add(id);
-            } else {
-                i--;
+            for (int i = 0; i < 6; i++) {
+                int id = (1 + (int) (Math.random() * (count)));
+                Animal animal = animalRepository.findById(id);
+                if (animal != null && !listId.contains(id)) {
+                    animauxAleatoires.add(animal);
+                    listId.add(id);
+                } else {
+                    i--;
+                }
             }
+            return animauxAleatoires;
 
-
+        } catch(Exception e){
+           e.printStackTrace();
+           return null;
         }
-
-        return animauxAleatoires;
-
-
-    }
-
-
-
-    /*@Override
-    public List<Animal> listeParCategorie(int idCategorie) {
-        return animalRepository.findByCategorieId(idCategorie);
-    }
-
-
-    public List<List<Animal>> listeAnimauxParCategorie() {
-
-        List<List<Animal>> results = new ArrayList<>();
-        Iterable<Categorie> listCategories = categorieService.afficherCategories();
-
-        for (Categorie c : listCategories){
-            List<Animal> animauxParCat = listeParCategorie(c.getId());
-            results.add(animauxParCat);
-        }
-        return results;
-    }*/
+    } */
 }

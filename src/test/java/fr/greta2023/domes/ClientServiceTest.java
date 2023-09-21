@@ -13,7 +13,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @Transactional
 public class ClientServiceTest {
-
     @Autowired
     private ClientService clientService;
 
@@ -27,7 +26,6 @@ public class ClientServiceTest {
         client.setEmail("test@test.com");
         client.setMotDePasse("test");
 
-
         // When
         Client clientConnecte = clientService.connexionClient(client);
 
@@ -36,7 +34,6 @@ public class ClientServiceTest {
         assertThat(clientConnecte.getEmail()).isEqualTo(client.getEmail());
         assertThat(clientConnecte.getMotDePasse()).isEqualTo(client.getMotDePasse());
     }
-
     @Test
     public void testConnexionClient_withInvalidCredentials_shouldReturnNull() {
         // Given

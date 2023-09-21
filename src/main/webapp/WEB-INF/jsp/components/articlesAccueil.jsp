@@ -18,8 +18,8 @@
 
 <div class="row d-flex justify-content-start" >
 
-   <c:if test="${!empty(catalogue)}">
-      <c:forEach var="categorie" items="${catalogue}">
+   <c:if test="${!empty(listeCategories)}">
+      <c:forEach var="categorie" items="${listeCategories}">
            <div id="${categorie.categorie}" style="height:120px"></div>
            <div>
                 <h2 class="text-center">LES ${categorie.categorie}</h2>

@@ -45,7 +45,8 @@ public class ClientController {
         }
         clientService.creerClient(client);
         System.out.println("on enregistre le client");
-        return "monCompte";
+        model.addAttribute("clientConnecte",client);
+        return "redirect:monCompte";
     }
 
     @PostMapping("/seConnecter")

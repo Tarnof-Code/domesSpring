@@ -21,37 +21,53 @@ public class PanierSeviceImpl implements PanierService{
 
     @Override
     public void ajouterAuPanier(Client client, HttpSession session, Animal animal) {
-        ArticlePanier articlePanier = new ArticlePanier();
-        articlePanier.setClient(client);
-        articlePanier.setAnimal(animal);
-        panierRepository.save(articlePanier);
-
+        try{
+            ArticlePanier articlePanier = new ArticlePanier();
+            articlePanier.setClient(client);
+            articlePanier.setAnimal(animal);
+            panierRepository.save(articlePanier);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void supprimerDuPanier(Client client, HttpSession session, Animal animal) {
-        ArticlePanier animalASuppr = panierRepository.findByClientAndAnimal(client,animal);
-        panierRepository.delete(animalASuppr);
+        try {
+            ArticlePanier animalASuppr = panierRepository.findByClientAndAnimal(client,animal);
+            panierRepository.delete(animalASuppr);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<Animal> listerAnimauxDuPanier(Client client) {
-        List<ArticlePanier> articlePanierList = panierRepository.findByClient(client);
-        List<Animal> animalList = new ArrayList<>();
-        for (ArticlePanier articlePanier : articlePanierList) {
-            animalList.add(articlePanier.getAnimal());
+        try{
+            List<ArticlePanier> articlePanierList = panierRepository.findByClient(client);
+            List<Animal> animalList = new ArrayList<>();
+            for (ArticlePanier articlePanier : articlePanierList) {
+                animalList.add(articlePanier.getAnimal());
+            }
+            return animalList;
+        } catch(Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return animalList;
     }
-
 
     @Override
     public double calculerPrixTotalDuPanier(Client client) {
-        List<Animal> animauxDuPanier = listerAnimauxDuPanier(client);
-        double prixTotal = 0;
-        for (Animal animal : animauxDuPanier) {
-            prixTotal += animal.getPrix();
+        try{
+            List<Animal> animauxDuPanier = listerAnimauxDuPanier(client);
+            double prixTotal = 0;
+            for (Animal animal : animauxDuPanier) {
+                prixTotal += animal.getPrix();
+            }
+            return prixTotal;
+        } catch (Exception e){
+            e.printStackTrace();
+            return 0;
         }
-        return prixTotal;
     }
 }

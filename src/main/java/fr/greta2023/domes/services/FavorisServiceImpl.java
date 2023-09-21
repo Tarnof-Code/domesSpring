@@ -19,25 +19,37 @@ public class FavorisServiceImpl implements FavorisService{
 
     @Override
     public List<Animal> listerAnimauxFavoris(Client client) {
-        List<Favoris> listeFavoris = favorisRepository.findByClient(client);
-        List<Animal> animalList = new ArrayList<>();
-        for(Favoris favoris:listeFavoris){
-            animalList.add(favoris.getAnimal());
+        try{
+            List<Favoris> listeFavoris = favorisRepository.findByClient(client);
+            List<Animal> animalList = new ArrayList<>();
+            for(Favoris favoris:listeFavoris){
+                animalList.add(favoris.getAnimal());
+            }
+            return animalList;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return animalList;
     }
 
     @Override
     public void ajouterAuxFavoris(Client client, HttpSession session, Animal animal) {
-        Favoris favoris = new Favoris();
-        favoris.setClient(client);
-        favoris.setAnimal(animal);
-        favorisRepository.save(favoris);
+        try{
+            Favoris favoris = new Favoris();
+            favoris.setClient(client);
+            favoris.setAnimal(animal);
+            favorisRepository.save(favoris);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
-
     @Override
     public void supprimerDesFavoris(Client client, HttpSession session, Animal animal) {
-        Favoris animalASuppr = favorisRepository.findByClientAndAnimal(client,animal);
-        favorisRepository.delete(animalASuppr);
+        try{
+            Favoris animalASuppr = favorisRepository.findByClientAndAnimal(client,animal);
+            favorisRepository.delete(animalASuppr);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

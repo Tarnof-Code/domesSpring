@@ -27,11 +27,6 @@ public class Client {
     @Size(min=2,message = "Doit contenir au moins 2 caractères")
     private String motDePasse;
 
-   /* @OneToMany(mappedBy = "client",
-                cascade = CascadeType.ALL,
-                fetch = FetchType.EAGER,
-                orphanRemoval = true)
-    private List<Adresse> adresses = new ArrayList<>();*/
 
     public Client() {
     }

@@ -15,4 +15,8 @@ public interface AnimalRepository extends CrudRepository<Animal, Integer> {
    /* @Query("select a from Animal a where a.categorieId = id")*/
     public List<Animal> findByCategorieId(int categorieId);
 
+    @Query(value = "SELECT * FROM Animal ORDER BY RAND() LIMIT 6",nativeQuery = true)
+    List<Animal> findRandomList();
+
+
 }

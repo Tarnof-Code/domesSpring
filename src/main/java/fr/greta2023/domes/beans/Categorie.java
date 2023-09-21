@@ -1,6 +1,5 @@
 package fr.greta2023.domes.beans;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

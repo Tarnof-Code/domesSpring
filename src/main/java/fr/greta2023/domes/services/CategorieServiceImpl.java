@@ -19,6 +19,12 @@ public class CategorieServiceImpl implements CategorieService{
 
     @Override
     public Iterable<Categorie> afficherCategories() {
-        return categorieRepository.findAll();
+        try{
+            return categorieRepository.findAll();
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
     }
 }

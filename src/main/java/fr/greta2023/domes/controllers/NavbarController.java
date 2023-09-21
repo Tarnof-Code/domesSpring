@@ -48,9 +48,11 @@ public class NavbarController {
         listeCategories = categorieService.afficherCategories();
         model.addAttribute("listeCategories",listeCategories);
 
-        Iterable<Categorie> catalogue = new ArrayList<>();
+      /*  Iterable<Categorie> catalogue = new ArrayList<>();
         catalogue = categorieService.afficherCategories();
-        model.addAttribute("catalogue",catalogue);
+        model.addAttribute("catalogue",catalogue); */
+
+
 
         return "accueil";
     }
